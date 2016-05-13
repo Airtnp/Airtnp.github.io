@@ -1,0 +1,878 @@
+﻿---
+layout:     post
+title:      "Ordinary Differential Equations Note"
+subtitle:   "Too hard"
+date:       2016-02-01 11:09:00
+author:     "Airtnp"
+header-img: "img/post-notes.jpg"
+tags:
+    - Notes
+    - Math
+    - ODE
+---
+
+##01
+|Analytic|Geometric|
+|---|---|
+|$y'=f(x,y)$|Direction Field|
+|one solution $y_1(x)$|Integral Curve|
+###First-Order ODEs
+* $y'=f(x,y)$
+* Geometric view of ODEs
+* Analytic view of ODEs
+* direction field 
+* + vector field $\textrm{slope}=f(x,y)$
+* + ![892_Draw the direction field2.png-50.9kB][1]
+* + $y'=y-x$
+* Integral Curve
+* + A curve whose direction equals field direction everywhere
+* + cannot cross
+* + cannot tangent(touch)
+* + - Exist and Uniqueness theorem
+* + - - Through a point $(x_0,y_0),\, y'=f(x,y)$ has one and only one solution
+* + - - Can differentiable
+* + ![2408_Draw the direction field3.png-37.7kB][2]
+* $y_1(x)$ is solution to $y'=f(x,y)$ iff graph of $y_1(x)$ is an integral curve of direction field of $f(x,y)$
+* + $y_1'(x)=f(x,y_1(x))$
+* Draw 
+* + Draw level curve (isocline)
+* + Draw in line-elements on isoline
+* + Connect
+ 
+##02
+###Euler's Method for numeric solution
+* IVP(Initial Value Problem)
+* + $\begin{cases} y'=f(x,y) \\ y(x_0)=y_0 \end{cases}$
+* Euler Method
+* + Known: direction and value at $(x_0,y_0)$
+* + choose step size $h$
+* + Error Analysis
+* + - convex: negative; concave: positive
+![Euler.PNG-14.7kB][3]
+* + Better Method
+* + - smaller step size
+* + - $e \widetilde{} c_1 h$
+* + - -  First-order error-first order method
+* + - better slope
+* Heun's Method (Improved Euler Method/RK2)
+* + Euler $\widetilde{y}_{n+1} = y_n + hA_n$
+* + Heun $y_{n+1}=y_n+h(\frac{A_n+B_n}{2})$
+* + - $B_n=f(x_{n+1},\widetilde{y}_{n+1})$
+* + Second-order method $e \widetilde{} c_2 h^2$
+* RK4 (Runge-Kutta) (standard method for computation)
+* Singularity Problem
+
+##03
+###First-Order Linear Differential Equations
+* $a(x)y'+b(x)y=c(x)$
+* + homogeneous $c=0$
+* + Standard Linear Form $y'+p(x)y=q(x)$
+* Models
+* + Temperature-Concentration Model
+* + Mixing Model
+* + Radioactive Decay Model
+* + Bank account Model
+* + Newton Motion Model
+* + RC Circuit Model
+* Conduction-Diffusion Model
+* + Conduction for const external temperature
+* + - ![conduction.jpg-41.2kB][4]
+* Diffusion
+* + - Simple Picture $T \rightarrow C$
+* Integrating Factor $u(x)$
+* + $(uy)'=uy'+puy=qu$
+* + $u'=pu \Rightarrow u = e^{\int p dx}$
+* Solving First-Order Linear Differential Equation
+* + Standard Linear Form
+* + Calculate $u=e^{\int p dx}$
+* + Multiply both side $u$
+* + Integrate $\int (u(x)y(x))' dx = \int q(x)u(x) dx$
+* + $y = \frac{\int q(x)u(x) dx}{u(x)} = \frac{\int q(x)e^{\int p(x) dx}dx}{e^{\int p(x) dx}} + ce^{-\int p(x) dx}$
+
+|Conduction|Diffusion|
+|---|---|
+|Newton cooling Law|Diffusion Law|
+|$\frac{dT}{dt} = k(T_{\textrm{external}}-T_{\textrm{internal}})$ |$\frac{dC}{dt} = k_1(C_{\textrm{external}}-C_{\textrm{internal}})$|
+|conductivity $k>0$|$k_1>0$|
+|$e^{kt}T=\int k T_e(t) e^{kt} +C$|
+
+##04
+###Substitutions
+* Scaling $x' = \frac{x}{a} \quad y = \frac{y}{b}$
+* + Changing units
+* + Make variables dimensionless (without units)
+* + Reduce the number of simplify constants 
+* Another Cooling Law for high temperature const external
+* + $\frac{dT}{dt} = k(T_e^4-T^4)$
+* + Scaling $T_1 = \frac{T}{M}$
+* + $\frac{dT_1}{dt} = k_1(1-T_1^4)$ $k_1 = kM^3$ **lumping constant** 
+* Bernoulli Equation
+* + $y' = p(x)y+q(x)y^n$
+* + $\frac{y'}{y^n} = p(x) y^{1-n} + q(x)$
+* + Direct Substitution $v = y^{1-n} \Rightarrow v'=(1-n)\frac{y'}{y^n}$
+* + $v' = (1-n)p(x)v+q(x)$
+* Homogeneous ODEs
+* + $y' = F(\frac{y}{x})$
+* + Invariant under Zoom
+* + Inverse Substitution $z= \frac{y}{x} \Rightarrow y=zx \Rightarrow y' = z'x+z$
+* + $z'=\frac{F(z)-z}{x}$
+
+##05
+###Autonomous first order differential equations
+* $\frac{dy}{dt} = f(y)$
+* no independent variables on RHS
+* In direction field horizonal lines are isocline
+> 自治系统在任意时刻从相空间同一点出发的解轨线均相同
+> Let $x_1(t)$ be a unique solution of the initial value problem for an autonomous system
+$\frac{d}{dt}x(t)=f(x(t)) \, \mathrm{,} \quad x(0)=x_0$.
+Then $x_2(t)=x_1(t-t_0)$ solves
+$\frac{d}{dt}x(t)=f(x(t)) \, \mathrm{,} \quad x(t_0)=x_0$.
+Denoting $s=t-t_0$ we have $x_1(s)=x_2(t)$ and $ds=dt$, 
+Thus
+$\frac{d}{dt}x_2(t)=\frac{d}{dt}x_1(t-t_0)=\frac{d}{ds}x_1(s)=
+f(x_1(s))=f(x_2(t))$
+For the initial condition, the verification is trivial,
+$x_2(t_0)=x_1(t_0-t_0)=x_1(0)=x_0$.
+* Logistic Euqation
+* + $\frac{dy}{dt} = ky$
+* + Simple $k = a-by$
+![logistic.jpg-6.4kB][5]
+
+##06
+###Complex Differential Equation
+* $\mathbb{R} \rightarrow \mathbb{C} y = \quad u(t)+iv(t)$
+* $\frac{d}{dt}(=D)(u+iv) = Du+iDv$
+* $\frac{d}{dt}e^{it} = i(\cos{t}+i\sin{t})=ie^{it}$
+* $e^{a+ib} = e^a \cdot e^{ib} \quad z = re^{i\theta}$
+* modulus $r=|z|$ argument $\theta = \arg{z}$
+* $r_1e^{i\theta_1}r_2e^{i\theta_2} = r_1r_2 e^{i (\theta_1+\theta_2)}$
+* $\sqrt[n]{1}$ unit root
+
+##07
+###Constant Cofactor First-Order Differential Equation
+* $y'+ky=q(t) \Rightarrow y = e^{-kt} \int q(t) e^{kt} dt + ce^{-kt}$
+* + Dummy Variables $0/1$ indication
+* + $e^{-kt} \int q(t) e^{kt} dt$ steady-state solution(sss)
+* + $ce^{-kt} \rightarrow 0$ as $t \rightarrow 0$ transient solution
+* Input-Response Model(System) 
+![input-response.jpg-5.7kB][6]
+* + $k>0$ engineering
+* + $k<0$ input-response not apply (in bio/ecnomic)
+* Superposition principle
+* + $q_1(t) \rightarrow y_1(t)$
+* + $q_2(t) \rightarrow y_2(t)$
+* + $\sum q_i(t) \rightarrow \sum y_i(t)$
+* Triangle Function - Solve Complex and Use Real part
+* + Polar
+* + Cartesian
+* + $y'+ky = k\cos{\omega t}$
+
+##08
+###Basic Linear ODE
+* $y'+ky=kq_e(t)$ Temp-Conc/Cond-Diff Model
+* + Mixing Model
+* + - $\frac{dx}{dt} = -r\cdot C_e - r\frac{x}{v}$
+* $y'+ky = q(t)$ 
+* + RC circuit
+* + - ![RCcircuit.jpg-27.4kB][7]
+* + - $RI + \frac{q}{C} = R\frac{dq}{dt} + \frac{q}{C} = \varepsilon(t)$
+* + - $q'+\frac{q}{RC} = \frac{\varepsilon(t)}{R}$
+* + Radioactive Chain Decay $A \rightarrow B \rightarrow C $
+* + - $\frac{dB}{dt} = k_A A(t) - k_B B(t) = k_A A_0 e^{-k_A t} - k_B B$
+* + - $B'+k_B B = k_A A_0 e^{-k_A t}$
+* $y'+p(t)y=q(t)$
+
+
+##09
+###Second-Order homogeneous ODE with constant coefficients
+* $y''+Ay'+By=0$
+* $y = c_1 y_1 + c_2 y_2$
+* **Passive** Spring-mass-dashpot system
+* + $mx''=-kx-cx' \Rightarrow x''+\frac{c}{m}x'+\frac{k}{m}x=0$
+![spring-mass.jpg-62.1kB][8]
+* ansatz $y = e^{rt} \Rightarrow r^2+Ar+B=0$
+* + If real root (over damped)
+* + If complex root (under damped) $y = e^{(a+bi)t}$
+* + - complex root $u+iv$ for real coefficient equations $y''+Ay'+B=0$, then $u,v \in \mathbb{R}$
+* + $y = e^{at} (c_1\cos{bt} + c_2 \sin{bt}) = \sqrt{c_1^2+c_2^2}e^{at} \cos{bt-\phi}$
+* + If equal root (critical damped)
+* + - ansatz $y = e^{-at}u \Rightarrow y = e^{-at}t$
+![damp2.jpg-6.7kB][9]
+
+##10
+###Oscillation
+* $y''+by'+ky=0$
+* Complex answer $y =C_1 e^{(a+bi)t}+C_2 e^{(a-bi)t}$
+* Substitution $i \rightarrow -i$
+* $y = \overline{C_1}e^{(a-bi)t} + \overline{C_2}e^{(a+bi)t}$ equals the previous one
+* $C_2=\overline{C_1} \quad C_1 = \overline{C_2}$
+* spring-mass-dashpot
+* + pseudoperiod
+
+##11
+###Second-Order Linear ODE
+* $y''+p(x)y'+q(x)=0$
+* Theorem linear independent $y_1,y_2$ can have all solution $y = c_1y_1+c_2y_2$
+* $D$ is linear operator
+* Linear operator $L = D^2+pD+q$ 
+* + $Ly=0$
+* + ![operate.PNG-75.4kB][10]
+* Solving IVP
+* + $\begin{cases} y(x_0)=a \\ y'(x_0)=b \end{cases}$
+* + Using $\{c_1y_1+c_2y_2\}$ family
+* + Solvable the equation system
+* + - $\begin{vmatrix} y_1 & y_2 \\ y_1' & y_2' \end{vmatrix} \neq 0$
+* **Wronskian Determinant**
+* + $W(x)=W(y_1,\cdots,y_n) = \begin{vmatrix} y_1 & y_2 & \cdots & y_n \\ y^{(1)}_1 & y^{(1)}_2 & \cdots y{(1)}_n \\ \vdots & \vdots & \ddots & \vdots \\ y^{(n-1)}_1 & y^{(n-1)}_2 & \cdots & y^{(n-1)}_n \end{vmatrix}$ 
+* + If $y_1,\cdots,y_n$ linear independent(solution to ODE) $W(x) \equiv 0$ or $W(x) \not \equiv 0$
+
+##12
+###Second-Order Inhomogeneous Differential Equation
+* $y''(x)+p(x)y'+q(x)y=f(x)$
+* + $f(x)$ input/signal/driving term/forcing term
+* associated homogeneous equation(reduced equation) $y''(x)+p(x)y'+q(x)y = 0 \Rightarrow y_c = c_1y_1+c_2y_2$(complementary solution)
+* **Forced** mass-spring-dashpot system
+* + $mx''+bx'+kx=f(t)$ with external force
+* $L\mathbf{y}=f(x) \Rightarrow y = y_p+y_c = y_{\textrm{particular}}+\sum c_i y_i$
+* + Uniqueness Theorem
+* Asymptotically stable (transient) $\sum c_i y_i \rightarrow 0$ as $x \rightarrow \infty$
+|Roots|Solns|Stable Reduced homogeneous|
+|----|----|---|
+|$r_1 \neq r_2$|$C_1e^{r_1t}+C_2e^{r_2t}$|$r_1<0,\, r_2<0$|
+|$r_1=r_2$|$(C_1+C_2t)e^{rt}$|$r<0$|
+|$r = a+bi$|$e^{at}(c_1\cos{bt}+c_2\sin{bt})$|$a<0$|
+$\Re e{(r)} < 0$
+
+###Circuits Problem (Kirchhoff Law)
+####Recharge ULR
++ $V = \frac{Q}{C} = \frac{\int^t I dt}{C}$
++ $L\frac{d\widetilde{I}}{dt} + R \widetilde{I} + RI_\infty = V_0$
++ $I(t) = \frac{V_0}{R}(1-e^{-\frac{Rt}{L}})$
+####Discharge LR
++ $L\frac{dI}{dt} + RI = 0$
++ $I  = I_0 e^{-\frac{Rt}{L}}$
++ $\int P = \int_{0}^{\infty} I^2R =  \frac{1}{2}LI^2 = U$
+####Cycle LC
+![Lc_circuit.svg-9kB][11]
++ $L\frac{dI}{dt} +\frac{Q}{C} = 0$
++ $L\frac{d^2Q}{dt^2} + \frac{Q}{C} = 0$
++ $Q(t) = A \cos{\sqrt{\frac{1}{LC}}t} + B \sin{\sqrt{\frac{1}{LC}}t} = C \cos{(\omega_0t - \gamma)}$
++ $\omega_0 = \sqrt{\frac{1}{LC}}$
+####~V(Alternating Voltage [AC source])LC
+![LC.png-10.5kB][12]
++ $L\frac{d^2Q}{dt^2} + \frac{Q}{C} = V_0 \cos{\omega t}$
++ $C = - \frac{\frac{V_0}{L}}{\omega^2-\omega_0^2}$
++ $Q(t) = \widetilde{C} \cos{\omega t}$
++ $I(t) = \frac{\omega \frac{V_0}{L}}{\omega^2-\omega_0^2} \sin{\omega_t}$
++ Current and Voltage not sychronized
+####RLC
+![RLC.png-16.8kB][13]
++ $L\frac{d^2Q}{dt^2} + R\frac{dQ}{dt} + \frac{Q}{t} = 0$
++ $Q(t) = Ae^{-\beta t}$
+####~VRLC
+![VLCR.jpg-4.4kB][14]
++ $L\frac{dI}{dt} + RI + \frac{1}{C}\int^t I(t) dt = V_0 \cos{\omega t} = V(t)$
++ By conjugate and the real number property
++ $L\frac{d\overline{I}}{dt} + R\overline{I} + \frac{1}{C}\int^t \overline{I}(t) dt = \overline{V}(t)$
++ $L\frac{dRe(I)}{dt} + R\,Re({I}) + \frac{1}{C}\int^t Re({I})(t) dt = Re({V}(t))$
++ $V = V_0 e^{i\omega t}$
++ $\widetilde{I} = \widetilde{I_0} e^{i\omega t}$
++ $(R+i(\omega L - \frac{1}{\omega C}))\widetilde{I_0}e^{i\omega t} = V_0 e^{i\omega t}$
++ impedance $Z = R+i(\omega L - \frac{1}{\omega C})$
++ $\widetilde{I_0} = \frac{V_0}{Z} = \frac{V_0}{|Z|e^{i\varphi}}$
++ $\tan{\varphi} = \frac{\omega L - \frac{1}{\omega C}}{R}$
++ $\widetilde{I} = \frac{V_0}{|Z|}  e^{i(\omega t - \varphi)}$
++ $I(t) = \frac{V_0}{|Z|} \cos{(\omega t - \varphi)}$
+
+##13
+###Second-Order Inhomogeneous Differential Equation
+* $y''+Ay'+By=f(x)$ particular solution
+* $L_{(D^2+AD+B)}\mathbf{y} = f(t) = e^{\alpha t}$
+* $(D^2+AD+B)y = p(D)e^{\alpha x} = p(\alpha)e^{\alpha x}$ eigenfunction of operator $D$
+* Exponential-Input Theorem
+* + input: exponential
+* + response: expoential
+* Exponential Substitution Rule
+* + $p(D)e^{\alpha x} = p(\alpha)e^{\alpha x}$
+* + $y_p =  \frac{e^{\alpha x}}{p(\alpha)}$ 
+* + $p(\alpha) \neq 0 ,\,\, p(D)y_p = e^{\alpha x} \Rightarrow p(D)y_p =  p(D)\frac{e^{\alpha x}}{p(\alpha)} = e^{\alpha x}$
+* Exponential-Shift Rule
+* + $p(D)e^{\alpha x}u(x) = e^{\alpha x}p(D+a)u(x)$
+* + Not double root, $p'(\alpha) \neq 0$ $p(\alpha) = 0 ,\,\, p(D)y_p = e^{\alpha x} \Rightarrow y_p = \frac{xe^{\alpha x}}{p'(\alpha)}$
+* + - $p(D)\frac{e^{\alpha x}}{p'(\alpha)} = e^{\alpha x} p(D+\alpha) \frac{x}{p'(\alpha)} = e^{\alpha x}(D+a-b)D\frac{x}{p'(\alpha)(=a-b)}$
+* + Double root $p'(\alpha) = 0 ,\,\, p(\alpha) = 0$ $p''(\alpha) \neq 0 \Rightarrow y_p = \frac{x^2e^{\alpha x}}{p''(\alpha)}$
+* + $y_p = \frac{x^n e^{\alpha x}}{p^{(n)}(\alpha)}$ 
+* + - if ($p^{(0)}=p^{(1)}=p^{(2)}=\cdots=p^{(n-1)} = 0 \quad p^{(n)} \neq 0$)
+
+##14
+###Review
+* $p(D)$ formal polynomial/linear operator on functions
+* $f(t)$ exponential or exponential's real/imagine projection(Triangle Function is projection of $e^{ix}$
+![amplitude_with_frequency_graph.png-13.3kB][15]
+###$mx''+bx'+kx=F_0\cos{\omega t}$
+* $x''+\gamma x'+\omega_0 x =(\frac{F_0}{m})\cos{\omega t}$
+* $x''+\gamma x'+\omega_0 x =0$
+* + Ansatz: $x(t) = Ae^{\alpha t}$
+* + $(\alpha^2+\gamma \alpha +\omega_0^2)Ae^{\alpha t} = 0$
+* + $\alpha_\pm = \frac{\gamma}{2} \pm \sqrt{(\frac{\gamma}{2})^2-\omega_0^2}$
+* + $x = Ae^{-|\alpha_+|t}+\overline{A}e^{-|\overline{\alpha_+}| t} = Ce^\frac{\gamma t}{2} \cos{(\omega t +\varphi)}$
+* + damped oscillation
+* Inhomogeneous ODE
+* $x''+\gamma x'+\omega_0 x =(\frac{F_0}{m})\cos{\omega t} = \frac{F_0}{m}e^{1\omega t}$
+* Ansatz: $z = z_0e^{i\omega t}$
+* $z_0 = \frac{F_0/m}{-\omega^2+i\omega \gamma +\omega_0^2}$
+* Impedance $I(\omega) = -\omega^2+i\omega \gamma +\omega_0^2$
+* $z_{part} = \frac{F_0/m}{I(\omega)}e^{i\omega t} = \frac{F_0/m}{|I|}e^{i(\omega t-\varphi)} = \frac{F_0/m}{|I|}\cos{(\omega t -\varphi)}$
+* $|I| = \sqrt{(\omega^2-\omega_0^2)^2+\omega^2\gamma^2}$
+* + **Resonance**
+* $x(t) = x_{hom}+x_{part} = \frac{F_0/m}{|I|}\cos{(\omega t -\varphi)} + Ce^\frac{\gamma t}{2} \cos{(\omega t +\varphi)}$
+
+##15
+###Fourier Series
+* $f(t) = c_0 + \sum_{n = 1}^{\infty} a_n \cos{(nt)} + b_n \sin{(nt)}$
+* $\begin {align} b_n\sin{nt} & \quad b_ny_n^{(s)}(t) \notag \\ a_n\cos{nt} & \quad a_ny_n^{(c)}(t) \notag \\ f(t) & \quad \sum a_ny_n^{(c)}(t)+ b_ny_n^{(s)}(t)+c_1 \notag \end{align}$
+* ![fourier1.png-72.3kB][16]
+* ![fouriercoefficients.png-14.7kB][17]
+* Orthogonality
+* + $u(t),\,v(t)$ almost continuous on $\mathbb{R}$ and periodic($2\pi$)
+* + Orthogonal on $[-\pi,\pi]$ if $u(t)\star v(t) = \int_{-\pi}^\pi u(t)v(t) dt = 0$
+* + Proof: 
+* + - Calculation/Integral
+* + - Tranform(Complex/Equivalent)
+* + - Using Differential Equations
+* + - - For $\cos{(nt)},\,\sin{(nt)}$ construct$u''=-n^2u$
+* + - - $\int u''_n v_m dt = u'_n v_m |_{-\pi}^\pi -\int u'_n v'_m dt = -n^2 \int u_m v_n dt$
+* + - - Since $u,v$ are symmetric $-n^2\int v_n u_m dt = -m^2 \int v_m u_n dt = 0$
+* $\begin{cases}\sin{nt} & n = 1,2,\cdots,\infty \\ \cos{mt} & m = 0,1,\cdots,\infty \end{cases}$
+* + Any two distinct function **orthogonal** on $[-\pi,\pi]$
+* + Any same function convolution is $\pi$
+* Calculation for $f(t)$
+* + By orthogonality $\int f(t) \cos{(nt)} dt = a_n \pi$
+* + $a_n = \frac{1}{\pi} \int_{-\pi}^\pi f(t) \cos{(nt)} dt$
+* + $b_n = \frac{1}{\pi} \int_{-\pi}^\pi f(t) \sin{(nt)} dt$
+* + $\frac{a_0}{2}=c_0 = \frac{1}{2\pi} \int_{-\pi}^\pi f(t) dt$
+* Projection to infinite dimension space in triangle function basis
+![fs.PNG-22.7kB][18]
+![fs2.PNG-33.7kB][19]
+
+##16
+###Fourier Series
+* $f(t)$ periodic
+* unique fourier series
+* even function - only $\cos{nt}$
+* odd function - only $\sin{mt}$
+* Theorem
+* + If $f(t)$ continuous at t, $f(t)$= sum of fourier series (converges)
+* + If $f(t)$ jump discontinuity at t, sum of fourier series converges to the middle point of the jump
+![disconfs.jpg-23kB][20]
+###Extension #1 Fourier Series
+* Not $2\pi$ period, but $2L$
+* Scaling the axis
+* Using $\cos{(\frac{n\pi t}{L})} \,\, \sin{(\frac{m \pi t}{L})}$
+* $f(t) = \frac{a_0}{2} + \sum (a_n\cos{(\frac{n\pi t}{L})} + b_n\sin{(\frac{m \pi t}{L})})$
+* ![fouriercoefficients.png-14.7kB][21]
+* Even $f(t)$ $a_n = \frac{2}{L}\int_0^L f(t)\cos{\frac{(n\pi t)}{L}} dt$ (Odd symmetric)
+###Extension #2 Fourier Series
+* $f(t)$ defined on $[0,L]$
+* Periodic Extension
+![Periodic_extension_788x656.gif-13.5kB][22]
+* even/odd extension
+
+##17
+###Fourier Analysis
+* Square Wave
+* + ![square-wave-sine3.jpg-200.6kB][23]
+* + lower the sqaure $\frac{1}{2}A$, then odd function
+* + Scaling $f(t)=s(t)+\frac{1}{2} = \frac{1}{2}g(u) + \frac{1}{2} = \frac{1}{2} + \frac{2}{\pi} \sum_{\textrm{odd n}} \frac{\sin{n\pi t}}{n}$
+* Solving ODE $x''+\omega_0^2 x = f(t)$
+* + Periodic Extension $f(t) = \frac{a_0}{2} \sum (a_n\cos{(\omega_n t)} + b_n \sin{(\omega_n t)})$
+* + Driving Frequency $\omega_n= \frac{n\pi}{L}$
+* + $x_p =\frac{a_0}{2\omega_0^2}+ \sum (\frac{a_n\cos{(\omega_n t)}}{\omega_0^2-\omega^2} + \frac{b_n\sin{(\omega_n t)}}{\omega_0^2-\omega^2})$
+* + Alternating Method: Substitute Fourier Series as input and differentiate
+
+##18
+###Laplace Transform
+* $\sum a_n x^n = A(x)$
+* $$\sum_{0}^\infty a(n) x^n = A(x)$$
+* Continuous Extension of Power Series
+* + $n = 0,1,2,\cdots \rightarrow t : 0\leq t < \infty$
+* + $A(x) = \int_0^\infty a(t) x^t dt = \int_0^\infty a(t) e^{-st} dt = F(s)$ ($x<1$ for convergence, $s = -\ln{x}$)
+* Laplace Transform $$F(s) = \int_0^\infty f(t)e^{-st} dt$$
+* $$\mathcal{L}(f(t)) = F(s)$$
+* $$s = -\ln{x}$$
+![transform+operator.PNG-97.3kB][24]
+* + **Linear** Transform (Integral is a linear operator)
+![lt-1.PNG-42.9kB][25]
+![lt0.PNG-32.3kB][26]
+![lt1.gif-9.1kB][27]
+![laplace transforms 1.jpg-104.5kB][28]
+![lt2.PNG-37.9kB][29]
+![lt3.PNG-39.3kB][30]
+![lt4.PNG-10.3kB][31]
+* $\mathcal{L}(1) = \frac{1}{s} \quad s>0$
+* Exponentiial-Shift Formula ($x$ axis)
+* + $\mathcal{L}(e^{at} f(t)) = F(s-a) \quad a \in \mathbb{C},\,s>0$
+* $\cos{at} = \frac{e^{iat}+e^{-iat}}{2}$
+* $\mathcal{L}(\cos{at}) = \frac{\frac{1}{s-ia}+\frac{1}{s+ia}}{2} = \frac{s}{s^2+a^2} $
+* $\mathcal{L}(\sin{at}) = \frac{\frac{1}{s-ia}-\frac{1}{s+ia}}{2i} = \frac{a}{s^2+a^2}$
+* $\mathcal{L}(t^n) = \frac{n}{s} \mathcal{L}(t^{n-1}) = \frac{n!}{s^{n+1}} $
+* Inverse Laplace Transform
+
+##19
+###Laplace Transform for Linear Differential Equation
+* Growth Condition for Laplace Transform
+* + $f(t)$ must have "exponential type"
+* + $|f(t)| \leq Ce^{kt}$ $f(t)=O(e^{kt})$ $\forall t>0$
+* + - $$\lim_{t\rightarrow \infty} \frac{f(t)}{e^{st}} = 0$$
+* + Dissatisfy: $\frac{1}{t}$  $e^{t^2}$
+* $y''+Ay'+By=h(t)$ $y(0)=y_0, \, y'(0)=y'_0$
+* $\frac{1}{s^n} ~ \mathcal{L}(t^k)$
+* Solving Linear ODE
+* + $\mathcal{L}(y(t)) = Y(s)$ the differential equation $\rightarrow$ algebaric equation of $Y(s) = \frac{p(s)}{q(s)}$
+* + Solve $Y(s)$, $y(t) = \mathcal{L^{-1}}(Y(s))$
+* ![ls.gif-146.4kB][32]
+* Integration by Part $$\mathcal{L}(f^{(n)}(t)) = \int_0^\infty e^{-st}f^{(n)}(t) dt =e^{-st}f^{(n-1)}(t)|_0^\infty  - \int_0^\infty -se^{-st}f^{(n-1)}(t) dt$$
+* $$=0-f(0) + s\int_0^\infty e^{-st}f^{(n-1)}(t) dt$$
+* $$\mathcal{L}(f^{(n)}(t)) = s^nF(s) - \sum_{i = 0}^{n-1} s^{i}f^{(n-1-s)}(0)$$
+
+![Ltld.PNG-28.3kB][33]
+![Ltld2.PNG-17.7kB][34]
+
+> The (unilateral) Laplace transform $\mathcal{L}$ (not to be confused with the Lie derivative, also commonly denoted  $\mathcal{L}$) is defined by
+$$ L_t[f(t)](s)=\int_0^\infty f(t)e^{-st}dt$$
+where $f(t)$ is defined for $t\geq 0$ (Abramowitz and Stegun 1972). The **unilateral** Laplace transform is almost always what is meant by "the" Laplace transform, although a **bilateral** Laplace transform is sometimes also defined as
+$$ L_t^{(2)}[f(t)](s)=\int_{-\infty}^\infty f(t)e^{-st}dt$$ 
+
+
+##20
+###Convolution
+* $f(t)*g(t)$
+* $$F(s)G(s) = \int_0^\infty e^{-st}(f*g) dt$$
+* Discrete Convolution $F(x)G(x) = \sum_0^\infty c_n x^n= \sum (\sum a^ib^{n-i}) x^n$
+* Continuous Convolution $f(x)*g(x) = \int_0^t f(u)g(t-u) du$
+* $F(s)G(s) = \int_0^\infty \int_0^\infty e^{-s(u+v)}f(u)g(v) dudv $ (Orthogonal+Independent x,y)
+* $\overset{t=u+v}{=} \int_0^\infty \int_0^t e^{-st} f(u)g(t-u) \frac{\partial(u,v)}{\partial(u,t)} du dt = \int_0^\infty e^{-st} (f*g) dt$
+![convolution1.PNG-94kB][35]
+
+##21
+###Laplace Transform for Jump Discontinuity Input
+* To Make Laplace Inverse Unique
+* + Let $f(t)=0 \quad \forall t<0$
+* Unit Step Function $u_0(t) = u(t-a)$
+* + ![Laplace-Transform-of-Elementary-Functions-5.jpg-5.4kB][36]
+* + ![Laplace-Transform-of-Elementary-Functions-6.jpg-46.1kB][37]
+* + ![Laplace-Transform-of-Elementary-Functions-7.jpg-12.9kB][38]
+* + ![Laplace-Transform-of-Elementary-Functions-8.jpg-4.8kB][39]
+* Translation Formula ($t$ axis)
+* + (For Infomation Consevative) $\mathcal{L}(u(t-a)f(t-a)) = e^{-as}F(s)$
+* + $\mathcal{L}(u(t-a)f(t)) = e^{-as}  \mathcal{L}(f(t+a))$ 
+* + Prove by simple substitution
+* + Eg. $\mathcal{L^{-1}}(\frac{1+e^{-\pi s}}{s^2+1}) = u(t)\sin{t} + u(t-\pi)\sin{(t-\pi)}$
+* + - $f(t) = \begin{cases} \sin{t} & 0\leq t \leq \pi \\ 0 & t\geq \pi \end{cases}$
+* Unit Box(Rectangle) Function $u_{ab}(x)$
+* + $u_{ab}(x) = u_a(t)-u_b(t) = u(t-a)-u(t-b)$
+* + ![RectangleFunction_900.gif-3.3kB][40]
+* + Control the interval $[a,b]$ 
+* + $\mathcal{L}(u_{ab}(x)) = u(t-a)-u(t-b) = \frac{e^{-as}-e^{-bs}}{s}$
+
+
+##22
+###Dirac's Function
+* ![dirac.gif-4.6kB][41]
+* $\mathcal{L}(\frac{1}{h}u_{oh}(t)) = \mathcal{L}(\frac{1}{h}[u(t)-u(t-h)]) = \frac{1-e^{-hs}}{hs}$
+* Let $h \rightarrow 0$, $\lim_{h \rightarrow 0} \frac{1-e^{-hs}}{hs} = 1$
+
+* ![dirac2.PNG-87.7kB][42]
+
+* **Dirac Function acts as the idenitiy of convolution**
+* + $\mathcal{L}(u(t)f(t)*\delta(t)) = F(s)$
+* + $u'(t) = \delta(t)$
+* Unit Impluse Function
+* + ![Laplace-Transform-of-Elementary-Functions-9.jpg-10.5kB][43]
+* + ![Laplace-Transform-of-Elementary-Functions-10.jpg-49.7kB][44]
+* + ![Laplace-Transform-of-Elementary-Functions-11.jpg-4.6kB][45]
+* + ![Laplace-Transform-of-Elementary-Functions-12.jpg-5.3kB][46]
+* + ![Laplace-Transform-of-Elementary-Functions-13.jpg-10.6kB][47]
+* Second-Order (N-order) ODE system
+* + $y''+ay'+by=f(t)$ with $y(0)=0,\,y'(0)=0$
+* + $\mathcal{y} = \frac{F(s)}{s^2+as+b}$
+* + $y = f(t)*w(t) = \int_0^t f(u)w(t-u) du$
+* + - Transfer Function of System $W(s)=\frac{1}{s^2+as+b}$ (Or N-order)
+* + - - depend only on system (not input)
+* + - Weight Function of System $w(t) = \mathcal{L^{-1}}(W(s))$
+* + - - Response for impluse
+
+![Amp-Fre.gif-345.7kB][48]
+![Fourier_transform_time_and_frequency_domains_(small).gif-265.1kB][49]
+
+
+##23
+###System of First-Order Differential Equations
+* $\begin{cases} x'_1(t)  = f_1(x_1(t),\cdots,x_n(t),t) \\ x'_2 = f_2(x_1,\cdots,x_n,t) \\ \cdots = \cdots \\ x'_n = f_n(x_1,\cdots,x_n,t) \end{cases}$
+* Must with n initial condition
+* Autonomous system : No independent $t$
+* + Solution: Parametrized Curve 
+* + - $\begin{cases} x=f(t) \\ y=g(t) \end{cases}$
+* Linear System
+* + ![autonomoussystem.PNG-116.4kB][50]
+* + Equal a velocity(vector) field
+* + Dependent variables occur linearly $a(t)x+b(t)y$
+* Elimination
+* + System $\rightarrow$ one n-order differential equation
+
+##24
+###Constant-Coefficient System of First-Order Differential Equations
+* $$\begin{pmatrix} y_1 \\ y_2 \\ \cdots \\ y_n \end{pmatrix}^{'}  = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ \cdots \\ y_n \end{pmatrix}$$
+* + $$\mathbf{\vec y}' = A\mathbf{\vec y}$$
+* Ansatz $$\begin{pmatrix} y_1 \\ y_2 \\ \cdots \\ y_n \end{pmatrix} = \begin{pmatrix} k_1 \\ k_2 \\ \cdots \\ k_n \end{pmatrix}e^{\lambda t}$$
+* + $$\mathbf{\vec y} = \mathbf{\vec \alpha}e^{\lambda t}$$
+* $$\lambda\begin{pmatrix} k_1 \\ k_2 \\ \cdots \\ k_n \end{pmatrix} = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{pmatrix} \begin{pmatrix} k_1 \\ k_2 \\ \cdots \\ k_n \end{pmatrix}$$ 
+* + $$A\mathbf{\vec \alpha} = \lambda \mathbf{\vec \alpha} \Leftrightarrow (A-\lambda E)\mathbf{\vec \alpha} = \vec 0$$
+* Have nontrival solution $$\begin{vmatrix} a_{11}-\lambda & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22}-\lambda & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda \end{vmatrix} = 0$$
+* + $$|A-\lambda E|= 0$$
+* + $\begin{pmatrix} k_1 \\ k_2 \\ \cdots \\ k_n \end{pmatrix}$ Linear-dependent
+* + Solve Eigenvalue $\lambda_i$ and Eigenvector $\vec k_i$
+* Solution $$\begin{pmatrix} y_1 \\ y_2 \\ \cdots \\ y_n \end{pmatrix} = \sum_{i = 1}^n c_i \vec k_i e^{\lambda_i t} = \sum_{i = 1}^n c_i \begin{pmatrix} k_{i1} \\ k_{i2} \\ \cdots \\ k_{in} \end{pmatrix} e^{\lambda_i t}$$ 
+* Characteristic Equation (Solution: Eigenvalue) $$\lambda^2-\textrm{tr}{A}+\det{A} = 0$$
+
+##25
+###Repeated Eigenvalue
+* Algebraic Multiplicity : Number of $\deg{|A-\lambda I|}$
+* Geometric Multiplicity : Number of Orthogonal Linear-Independent Eigenvector for all eigenvalue
+* Complete Eigenvalue
+* + If number of independent(orthogonal) eigenvector = multiplicity
+* Defective Eigenvalue
+* + If number of independent(orthogonal) eigenvector < multiplicity
+* Spectral Theorem
+* + If $A$ real $nxn$ symmetric matrix
+* + Then all its eigenvalues are complete (Can diagnoalized)
+![Spectral.PNG-40.6kB][51]
+![Spectral2.PNG-12.7kB][52]
+
+###Complex Eigenvalue
+* Complex Eigenvector
+* $\mathbf{\vec \alpha}e^{(a+bi)t}$
+* Use Real Part
+* $$\begin{pmatrix} x \\ y \end{pmatrix} = \Bigg(\begin{pmatrix} s_1 \\ s_2 \end{pmatrix}\cos{bt} + \begin{pmatrix} t_1 \\ t_2  \end{pmatrix}\sin{bt}\Bigg)e^{a t}$$
+* $$\begin{pmatrix} s_1 \\ s_2 \end{pmatrix}\cos{bt} + \begin{pmatrix} t_1 \\ t_2  \end{pmatrix}\sin{bt} \Rightarrow  Ax^2+By^2+Cxy=D$$
+
+
+##26
+###Graph on Homogeneous Linear System of Differential Equations
+* ![graphsystem1.PNG-179.3kB][53]
+* ![graphsystem.PNG-323.4kB][54]
+* Sink Node ↑ (Asymptotically Stable)
+* Source Node arrow reversed (Unstable)
+* ![graphsystem2.PNG-228kB][55]
+* Saddle Node
+* Spiral Sink Node
+* + Complex Solution for Second-Order DE
+* + Real part +/- = source/sink 
+![critpoints.gif-12.5kB][56]
+
+##27
+###Inhomogeneous System of Differential Equations
+* Wronskian Determinant
++ * $$W(f_1, \ldots, f_n) (x)=
+\begin{vmatrix} 
+f_1(x) & f_2(x) & \cdots & f_n(x) \\
+f_1'(x) & f_2'(x) & \cdots & f_n' (x)\\
+\vdots & \vdots & \ddots & \vdots \\
+f_1^{(n-1)}(x)& f_2^{(n-1)}(x) & \cdots & f_n^{(n-1)}(x)
+\end{vmatrix},\qquad x\in I.$$
+* Fundamental Matrix (基解矩阵$\Phi$) of $\mathbf{\vec x}'=A\mathbf{\vec x}$
+* + $$X= \begin{bmatrix} \mathbf{\vec x_1} & \mathbf{\vec x_2} & \cdots & \mathbf{\vec x_n} \end{bmatrix}$$
+* + * + There $x_1,\cdots,x_n = \begin{pmatrix} x \\ y \\ z \\ \cdots \end{pmatrix}$
+* + Linear-Independent Solution $$|X| \neq 0$$
+* + Homogeneous Differential Equation $$X'=AX$$
+* $$\mathbf{\vec x'} = A\mathbf{\vec x} +\vec r(t)$$
+* + Undetermined coefficient method
+* System $\leftrightarrow$ N-order
+* + ![Differential Equation.png-41.4kB][57]
+* + ![Differential Equation_2.png-13.9kB][58]
+* + Set $x,y,z,\cdots$ as $x,x',x'',\cdots$
+* Variation of Parameter
+* + $\vec x_c = c_1 \vec x_1 + c_2 \vec x_2$
+* + Ansatz $\vec x_p = v_1(t) \vec x_1 + v_2(t) \vec x_2$
+* + $\vec x_p= X \vec v$
+* + $X\vec v' + X'\vec v = AX\vec v+ X\vec v' = AX\vec v + \vec r$
+* + $\vec v = \int X^{-1}\vec r dt = \int \frac{X^*}{W}\vec r dt$
+* + $\vec x_p = X\int_{t_0}^t X^{-1} \vec r ds$
+* $\vec x = X\vec c + X\int X^{-1} \vec r$
+> ![Variation1.png-56.6kB][59]
+注：s,t区别积分变量
+![Variation2.png-86.6kB][60]
+$W_k(x)$即代数余子式
+$$\varphi(t) = \sum_{k = 1}^{n} x_k(t) \int_{t_0}^{t} \frac{W_k(X(s))}{W(X(s))}f(s)ds$$
+微分方程解$$y = \sum c_ix_i(t) + \varphi(t)$$
+
+##28
+###Linear Algebra in Differential Equations
+* $$\vec x' = A\vec x \Rightarrow x = ce^{At}$$
+* Fundamental Matrix $$X = e^{At} = 1+ At + \frac{A^2t^2}{2!} +\cdots $$
+* Diagnoal $$A^n = Q\Lambda^n Q^{-1}$$
+* IVP with $\quad \vec x(0) = \vec x_0$
+* + $\vec x(0)  = e^{At}\vec c$
+* + $\vec x_0 = E \vec c$ Initial Value Vector
+* + $\vec c = \vec x_0$
+* + $\vec x = e^{At}\vec x_0$
+* $e^{A+B} \neq e^A e^B$
+* + $=$ iff $AB=BA$
+* + - $A=cE$
+* + - $B=-A \Rightarrow I = e^A\cdot e^{-A}$
+* + - $B= A^{-1}$
+* + - $A= 0$
+![commute.PNG-28.1kB][61]
+* Calculate $e^{At}$
+* + series
+* + symmetric using exponential law
+* + diagnoalize
+* + $X\cdot (X(0))^{-1}$ is still a fundamental matrix, and $X(0)\cdot (X(0))^{-1} = I$, which $e^{At}$ has same property, so $e^{At} = X\cdot (X(0))^{-1}$
+
+
+
+
+
+##29
+###Decoupling Homogeneous Linear System
+* $\vec x' = A\vec x$
+* + Eigenvalue + Eigenvector
+* + $e^{At}\vec x_0 \quad e^{At} = X(t)[X(0)]^{-1}$
+* + Decoupling
+* Decoupling
+* + Introduce new variables
+* + - $$\vec u = \begin{pmatrix} u_1 \\ u_2 \\ \cdots \\ u_n \end{pmatrix} = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \cdots & a_{nn} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \cdots \\ x_n \end{pmatrix} = D\vec x$$
+* + - Decoupled System $$\Rightarrow \begin{pmatrix} u'_1 \\ u'_2 \\ \cdots \\ u'_n \end{pmatrix} = \begin{pmatrix} k_1 & k_2 & \cdots & k_n \end{pmatrix} \begin{pmatrix} u_1 \\ u_2 \\ \cdots \\ u_n \end{pmatrix}$$
+* + Condition: Complete Eigenvalues
+* + $\vec x = D^{-1} \vec u = [\vec \alpha_1,\vec \alpha_2,\cdots,\vec \alpha_n]\vec u$
+* + - $D^{-1}$ columns are eigenvectors in $\vec u$ space (orthogonal in new base space)
+* + $$AD^{-1} = [\lambda_i \alpha_i] = [\alpha_i]\begin{bmatrix} \lambda_1 & 0 & \cdots \\ 0 & \lambda_2 & \cdots \\ 0 & 0 & \cdots \end{bmatrix} = D^{-1}\begin{bmatrix} \lambda_1 & 0 & \cdots \\ 0 & \lambda_2 & \cdots \\ 0 & 0 & \cdots \end{bmatrix} $$
+* + $$\vec x = D^{-1}\vec u \Rightarrow D^{-1}\vec u' = AD^{-1} \vec u = D^{-1}\begin{bmatrix} \lambda_1 & 0 & \cdots \\ 0 & \lambda_2 & \cdots \\ 0 & 0 & \cdots \end{bmatrix} \vec u$$
+* + - $$\Rightarrow \vec u' = \begin{bmatrix} \lambda_1 & 0 & \cdots \\ 0 & \lambda_2 & \cdots \\ 0 & 0 & \cdots \end{bmatrix}\vec u$$
+* + - Then **Decoupled**
+* + $\alpha_i$ eigenvectors of A $$D = [\vec \alpha_1,\vec \alpha_2,\cdots,\vec \alpha_n]^{-1}$$
+* A: linear transformation of the plane
+* + $A\vec \alpha_i = \lambda_i \vec \alpha_i$
+* + Eigenvector just strench without rotation
+
+##30
+###Autonomous Non-Linear Homogeneous System
+* $\begin{cases} x' = f(x,y) \\ y' \,= g(x,y) \end{cases}$
+* Non-linear $x,y$, No exact solution
+* Eg. Non-linear Pendulum
+* + ![nlpen.png-27.3kB][62]
+* + $$ml\theta'' = -mg\sin{\theta} - c_1 l\theta'$$
+* + $$\theta'' + \frac{c_1}{m}\theta'+\frac{g}{l}\sin{\theta} = 0 $$
+* + $$\theta''+c\theta'+k\sin{\theta} = 0$$
+* + $$\omega' = -k\sin{\theta} - c\omega$$
+* + Critical Point $(0,0),\,(\pi,0)$
+* + Near $(0,0)$ Replace $\sin{\theta}\widetilde{} \theta$ 
+* + - $\begin{cases} \theta' = \omega \\ \omega' = -k\theta - \omega \end{cases}$
+* + ![nlpen2.png-118.8kB][63]
+* To graph the trajectory
+* + Look for critical points
+* + - $\begin{cases} f(x_0,y_0) = 0 \\ g(x_0,y_0) \,=0 \end{cases}$ Stable Point
+* + - Solve simultaneously the equations
+* + For each critical point(奇点) $(x_0,y_0)$, approximately linearize system near the critical point, plot the trajectory near the critical point
+* + Calculate the Jacobian Matrix at $(x_0,y_0,\cdots)$
+* + - $$J_0 = \begin{bmatrix} 
+\frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \cdots \\ 
+\frac{\partial g}{\partial x} & \frac{\partial g}{\partial y} & \cdots  \\
+\vdots & \vdots & \ddots 
+\end{bmatrix}_{x=x_0,\,y=y_0}$$
+* + - Jacobian Matrix is matrix of the linearized system
+* + - Big Picture
+![Jacobian1.PNG-30.9kB][64]
+![Jacobian2.PNG-21.8kB][65]
+>Jacobian-多元函数一阶导 Hessian-多元函数二阶导
+  缩放因子： 从一个空间$(x,y,z,\cdots)$到另一个空间$(f,g,h,\cdots)$的比例变换(每个元素表示在各方向上延展的比例)
+
+
+##31
+###Limit Cycles
+* $\begin{cases} x' = f(x,y) \\ y' \,= g(x,y) \end{cases}$
+* $\vec F = f\hat{i}+g\hat{j}$
+* Closed Trajectory
+* + periodic behavior of the system
+* Limit Cycles
+* + ![limitcycle3.jpg-7.2kB][66]
+* + ![limitcycle4.png-15.3kB][67]
+* + closed trajectory and isolated and stable
+* + Stability ![limitcycle1.PNG-71.9kB][68]
+* + Unstable ![limitcycle2.PNG-100.2kB][69]
+* + Semi-stable
+* Always simple curve (do not cross itself)
+* Existence Problem
+* + In general, not much method
+* + Poincare-Bendixson Theorem
+* + - ![ponicare-bendixson.PNG-50.6kB][70]
+* Non-Existence Proof
+* + Bendixson Criterion: $D$ is the region of plane
+* + - $\textrm{div}(\vec F) = \frac{\partial f}{\partial x} + g_y = f_x+g_y$
+* + - If $\textrm{div}(\vec F) \neq 0$ in $D$
+* + - Then no closed trajectory in $D$
+* + Proof: 
+* + - Suppose closed trajectory $C$ exists
+* + - By Green theorem
+* + - flux of $\vec F$ around $C$ = $\oint_C \vec F \cdot \hat{n} ds = 0$($\vec F \perp \hat{n}$) 
+* + - flux of $\vec F$ around $C$ = $\iint_R \textrm{div}\vec F dA \neq 0$ ($\textrm{div}(\vec F) \neq 0$ and by Intermediate Value Theorem)
+* + - That's Contradiction 
+* + Critical Point Criterion: $D$ is the region of plane $C$ closed trajectory of system in $D$
+* + - Inside the $C$, there must be a critical point
+* + - If $D$ no critical point
+* + - Then no closed trajectory
+* + Proof:
+* + - 
+* Quadratic System
+* $\begin{cases} x' = ax^2+bxy+cy^2+dx+ey+f \\ y'= a'x^2+b'xy+c'y^2+d'x+e'y+f' \end{cases}$
+* + How many limit cycles can a quadratic system have?
+* + max # = 4 (秦元勋?)
+
+##32
+###Connection Between Non-linear System and First-Order ODE
+* $\begin{cases} \frac{dx}{dt} = f(x,y) \\ \frac{dy}{dt} = g(x,y) \end{cases}$
+* Eliminate $t$: $\frac{dy}{dx} = \frac{g(x,y)}{f(x,y)}$
+* Non-Linear System - First-Order ODE
+* Veclocity Field - Slope(Direction) Field
+* Explicit Function - Implicit Function
+* Linear System: only one center
+* Borderline Cases for Linearize Non-Linear System
+* + ![Non-Linear System.PNG-186kB][71]
+* + Slight change cause huge change
+* + ![Non-Linear System2.PNG-143.9kB][72]
+* Volterra's Problem 
+* + Prey-Predator System
+* + $$\begin{cases} frac{dx}{dt} = x(\alpha - \beta y) \\ \frac{dy}{dt} = - y(\gamma - \delta x) \end{cases}$$
+* + Eliminate $t$
+* + Volterra's Principle
+* + - An intervention in a prey-predator system that removes prey and predators in proportion to their population increases prey populations.
+
+
+* That's the End.
+* 2016-2-1 11：08
+
+
+##Appendix
+###Existence and Uniqueness Theorem
+* Cauchy-Lipschitz Theorem/Picard-Lindelöf Theorem
+* ![eut1.PNG-28.3kB][73]
+* ![eut2.PNG-41.2kB][74]
+* ![eut3.PNG-21.7kB][75]
+
+
+###Fourier Transform
+* $\omega_1 = \frac{\pi}{L}$
+* $f(t) = \frac{a_0}{2} + \sum (a_n\cos{(\frac{n\pi t}{L})} + b_n\sin{(\frac{m \pi t}{L})}) = \frac{a_0}{2} + \sum (a_n\cos{(n\omega_1 t} + b_n\sin{n \omega_1 t})$
+* ![fouriercoefficients.png-14.7kB][76]
+---
+![傅立叶变换的推导(原文档排版有问题_此为经重新修正版本).ppt-1425kB][77]
+![afs1.PNG-37.6kB][78]
+![afs2.PNG-22.3kB][79]
+![afs3.PNG-36.9kB][80]
+![afs4.PNG-15.1kB][81]
+![afs5.PNG-26.1kB][82]
+---
+![dft3.gif-167kB][83]
+![dft4.gif-265.1kB][84]
+---
+**Attention: Not $F(t)$, But $F(\omega)$**
+![Table1 (1).gif-15kB][85]
+![Table2 (1).gif-9.5kB][86]
+![Table3 (1).gif-16.3kB][87]
+![Table4 (1).gif-9.5kB][88]
+---
+* DFT
+* + ![dft2.png-9kB][89]
+* + ![DFT.jpg-619.9kB][90]
+
+
+  [1]: http://static.zybuluo.com/Airtnp/0773tt4p3xhxfb70phrrnwk5/892_Draw%20the%20direction%20field2.png
+  [2]: http://static.zybuluo.com/Airtnp/amrj67cgkxq0rk2wxko55cs5/2408_Draw%20the%20direction%20field3.png
+  [3]: http://static.zybuluo.com/Airtnp/9z57i8aafc77nxwyd1lqquvo/Euler.PNG
+  [4]: http://static.zybuluo.com/Airtnp/rhhfrmdwmd7w3ndsdcubntxf/conduction.jpg
+  [5]: http://static.zybuluo.com/Airtnp/m87rt75n2rrr83ntjqwffcv8/logistic.jpg
+  [6]: http://static.zybuluo.com/Airtnp/hqrk33mt94j72uotvnvqy4x8/input-response.jpg
+  [7]: http://static.zybuluo.com/Airtnp/r8ev507geijf3sn866tglvmy/RCcircuit.jpg
+  [8]: http://static.zybuluo.com/Airtnp/1gc1s9ujh7h7imzy4vg9wp9h/spring-mass.jpg
+  [9]: http://static.zybuluo.com/Airtnp/0hd2h2bayxr1x3omh089d43w/damp2.jpg
+  [10]: http://static.zybuluo.com/Airtnp/9dl6r73zphfr4tfw5l62c7rl/operate.PNG
+  [11]: http://static.zybuluo.com/Airtnp/ax8ttcogy4mlnjcra08plwkg/Lc_circuit.svg
+  [12]: http://static.zybuluo.com/Airtnp/8nqxr1skra4lxb2i81inzo49/LC.png
+  [13]: http://static.zybuluo.com/Airtnp/c2511t8pk317wxzkjjkgasn9/RLC.png
+  [14]: http://static.zybuluo.com/Airtnp/3srqcej34o4borkw38apt6bj/VLCR.jpg
+  [15]: http://static.zybuluo.com/Airtnp/jhvqtruru8l1nqq9xg0xcpc1/amplitude_with_frequency_graph.png
+  [16]: http://static.zybuluo.com/Airtnp/8825qcuuzbd255w52u0lk3j2/fourier1.png
+  [17]: http://static.zybuluo.com/Airtnp/er7skfkoq7x7o80t7tlndqbj/fouriercoefficients.png
+  [18]: http://static.zybuluo.com/Airtnp/lwn9p4c4cw6282i3zx5qt69h/fs.PNG
+  [19]: http://static.zybuluo.com/Airtnp/lv9h0j4xhy3cg0dnsitpan4g/fs2.PNG
+  [20]: http://static.zybuluo.com/Airtnp/59n11w0m7s9ddu9up0kn1pfh/disconfs.jpg
+  [21]: http://static.zybuluo.com/Airtnp/er7skfkoq7x7o80t7tlndqbj/fouriercoefficients.png
+  [22]: http://static.zybuluo.com/Airtnp/e2cy9b0ljo6a83t0lsr8cu8y/Periodic_extension_788x656.gif
+  [23]: http://static.zybuluo.com/Airtnp/tp89hono13bi0rwioq4g23c0/square-wave-sine3.jpg
+  [24]: http://static.zybuluo.com/Airtnp/xtejvxiajj1qkh4vylhkjmzd/transform+operator.PNG
+  [25]: http://static.zybuluo.com/Airtnp/fw82eb8cgkub0ow8uda6zctu/lt-1.PNG
+  [26]: http://static.zybuluo.com/Airtnp/1o4jpzmkjfuut1c6rxynyqq0/lt0.PNG
+  [27]: http://static.zybuluo.com/Airtnp/qsunafs13v1nzmxcxpb4pva0/lt1.gif
+  [28]: http://static.zybuluo.com/Airtnp/lohqs5c3h22av8epzwtq776p/laplace%20transforms%201.jpg
+  [29]: http://static.zybuluo.com/Airtnp/bi3sgtadl39hssjxtppb8iyh/lt2.PNG
+  [30]: http://static.zybuluo.com/Airtnp/5h9kyaruu17qo7wp7afrvw5q/lt3.PNG
+  [31]: http://static.zybuluo.com/Airtnp/c4k2grh1nxg8fk5umhi8r0bi/lt4.PNG
+  [32]: http://static.zybuluo.com/Airtnp/ngfg2wqsp5g6y1b139e5zvvb/ls.gif
+  [33]: http://static.zybuluo.com/Airtnp/ntmrbx3onh4o3k1oaehhzj0i/Ltld.PNG
+  [34]: http://static.zybuluo.com/Airtnp/359blplt5rygb7bfl0n356cb/Ltld2.PNG
+  [35]: http://static.zybuluo.com/Airtnp/kwzkeqdqyysitr3exg49t426/convolution1.PNG
+  [36]: http://static.zybuluo.com/Airtnp/6qepqkjival6oq4zpdqs2r5a/Laplace-Transform-of-Elementary-Functions-5.jpg
+  [37]: http://static.zybuluo.com/Airtnp/fzccnedhogipr9ydk4ibqdbd/Laplace-Transform-of-Elementary-Functions-6.jpg
+  [38]: http://static.zybuluo.com/Airtnp/qu2zuvtw10014uxbkm9qqprf/Laplace-Transform-of-Elementary-Functions-7.jpg
+  [39]: http://static.zybuluo.com/Airtnp/r95iyiw7ivg42mbiezf70wg2/Laplace-Transform-of-Elementary-Functions-8.jpg
+  [40]: http://static.zybuluo.com/Airtnp/v9ta8juqdv7lci78mkur78s9/RectangleFunction_900.gif
+  [41]: http://static.zybuluo.com/Airtnp/su4wcjkcovidrkfvogfpwbj1/dirac.gif
+  [42]: http://static.zybuluo.com/Airtnp/zs1h8dkg85jjr4wlx4wqvu2z/dirac2.PNG
+  [43]: http://static.zybuluo.com/Airtnp/mwp2aekiichwei820uyn77dn/Laplace-Transform-of-Elementary-Functions-9.jpg
+  [44]: http://static.zybuluo.com/Airtnp/4g45ty1yx9hcv68bi3w54ee2/Laplace-Transform-of-Elementary-Functions-10.jpg
+  [45]: http://static.zybuluo.com/Airtnp/7y0iguc9rlgd71autuj5p9p5/Laplace-Transform-of-Elementary-Functions-11.jpg
+  [46]: http://static.zybuluo.com/Airtnp/dsmd4sbf8hzvz7rd1ge6nhen/Laplace-Transform-of-Elementary-Functions-12.jpg
+  [47]: http://static.zybuluo.com/Airtnp/qxe8v9x5smg963j8xur0odte/Laplace-Transform-of-Elementary-Functions-13.jpg
+  [48]: http://static.zybuluo.com/Airtnp/rq6eag1ur7043n1ao14lnbf3/Amp-Fre.gif
+  [49]: http://static.zybuluo.com/Airtnp/0twebdkulqvgbti4igqs7hn2/Fourier_transform_time_and_frequency_domains_%28small%29.gif
+  [50]: http://static.zybuluo.com/Airtnp/fyttpp8phh6txc96g45d6ld6/autonomoussystem.PNG
+  [51]: http://static.zybuluo.com/Airtnp/j5tlktkqm85mbgmbxvlli6ah/Spectral.PNG
+  [52]: http://static.zybuluo.com/Airtnp/fxhxtq7nw8fikh3qt6p0d47z/Spectral2.PNG
+  [53]: http://static.zybuluo.com/Airtnp/zlurbzo0rz3w36ks3rd0bk7w/graphsystem1.PNG
+  [54]: http://static.zybuluo.com/Airtnp/w2ey3lr489totxkounwsb98q/graphsystem.PNG
+  [55]: http://static.zybuluo.com/Airtnp/ao23f5o43tic9cee21kst49r/graphsystem2.PNG
+  [56]: http://static.zybuluo.com/Airtnp/9fnodaktg3khrzwuqpxjqedt/critpoints.gif
+  [57]: http://static.zybuluo.com/Airtnp/lb09o7jkmn3zia9w1j2tyyfd/Differential%20Equation.png
+  [58]: http://static.zybuluo.com/Airtnp/jbbvbg2ygqn6rmpg63q8qjd5/Differential%20Equation_2.png
+  [59]: http://static.zybuluo.com/Airtnp/xu7kq5ank1zazho9nfxtjb7e/Variation1.png
+  [60]: http://static.zybuluo.com/Airtnp/i2cwfjkj0cxxiy35cyq6ucay/Variation2.png
+  [61]: http://static.zybuluo.com/Airtnp/n7c2y472qgkrcxzj4wwelm6r/commute.PNG
+  [62]: http://static.zybuluo.com/Airtnp/4vu3j533psmo4iacqx1vqknl/nlpen.png
+  [63]: http://static.zybuluo.com/Airtnp/9yrygk0rn2hs5sqhezca14nc/nlpen2.png
+  [64]: http://static.zybuluo.com/Airtnp/e49dlyefwzqdzp33crfjnona/Jacobian1.PNG
+  [65]: http://static.zybuluo.com/Airtnp/gupfqu7co5ytbzmg51qvgbk0/Jacobian2.PNG
+  [66]: http://static.zybuluo.com/Airtnp/lqj8196lo7ncwaxmh127oejk/limitcycle3.jpg
+  [67]: http://static.zybuluo.com/Airtnp/au2j0d1ht18ljmrsoq1je616/limitcycle4.png
+  [68]: http://static.zybuluo.com/Airtnp/g8njfpdn6l6ylwmn0twt7yxo/limitcycle1.PNG
+  [69]: http://static.zybuluo.com/Airtnp/pvvq3f9udv4dt8lwugtv8ic6/limitcycle2.PNG
+  [70]: http://static.zybuluo.com/Airtnp/2og0ywvt7ofc37zxm6pbi4xh/ponicare-bendixson.PNG
+  [71]: http://static.zybuluo.com/Airtnp/z44bos0bm4cuyg19gs14e3f5/Non-Linear%20System.PNG
+  [72]: http://static.zybuluo.com/Airtnp/w01y0c7iw5wvqvru1rj8zcmq/Non-Linear%20System2.PNG
+  [73]: http://static.zybuluo.com/Airtnp/5k21xl3z1vk700dzwduyx5eu/eut1.PNG
+  [74]: http://static.zybuluo.com/Airtnp/tqvqsbddapxpntl26pooqe3e/eut2.PNG
+  [75]: http://static.zybuluo.com/Airtnp/j9e8qs21bhsb0qlykknnhok1/eut3.PNG
+  [76]: http://static.zybuluo.com/Airtnp/er7skfkoq7x7o80t7tlndqbj/fouriercoefficients.png
+  [77]: http://static.zybuluo.com/Airtnp/fc282jasdg2i5s9ck47plzgj/%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%8E%A8%E5%AF%BC%28%E5%8E%9F%E6%96%87%E6%A1%A3%E6%8E%92%E7%89%88%E6%9C%89%E9%97%AE%E9%A2%98_%E6%AD%A4%E4%B8%BA%E7%BB%8F%E9%87%8D%E6%96%B0%E4%BF%AE%E6%AD%A3%E7%89%88%E6%9C%AC%29.ppt
+  [78]: http://static.zybuluo.com/Airtnp/n3yg4qice0di7h0a537d7qgz/afs1.PNG
+  [79]: http://static.zybuluo.com/Airtnp/8d8by3xu3izn0wl0jnrlq95z/afs2.PNG
+  [80]: http://static.zybuluo.com/Airtnp/1dbgp8wpuxqvh9epu09svejb/afs3.PNG
+  [81]: http://static.zybuluo.com/Airtnp/8tarcrgaaasroe1zm3oa8m3n/afs4.PNG
+  [82]: http://static.zybuluo.com/Airtnp/9aj0nv14l6jjr6pviust5ege/afs5.PNG
+  [83]: http://static.zybuluo.com/Airtnp/xo257wagmjwrmr41jcyybbsa/dft3.gif
+  [84]: http://static.zybuluo.com/Airtnp/5aj3asjw0qbzz7g9ya9wckjf/dft4.gif
+  [85]: http://static.zybuluo.com/Airtnp/pc0ynu3a43ywje5uyzs0xfn0/Table1%20%281%29.gif
+  [86]: http://static.zybuluo.com/Airtnp/xe04bdu1wgg2af8clvwaiked/Table2%20%281%29.gif
+  [87]: http://static.zybuluo.com/Airtnp/uy5nrz0dpxwul3xt752qg1s0/Table3%20%281%29.gif
+  [88]: http://static.zybuluo.com/Airtnp/liqzbrryebrukoe2f5y9vrp1/Table4%20%281%29.gif
+  [89]: http://static.zybuluo.com/Airtnp/7avnfxuvggzhmwzsqkeeg2u2/dft2.png
+  [90]: http://static.zybuluo.com/Airtnp/bzjioxs77r6ab4v8g03wtclf/DFT.jpg

@@ -1,0 +1,764 @@
+﻿---
+layout:     post
+title:      "Discrete Note"
+subtitle:   "Too hard"
+date:       2016-02-06 23:49:00
+author:     "Airtnp"
+header-img: "img/post-notes.jpg"
+tags:
+    - Notes
+    - Math
+    - Discrete Math
+---
+
+##1
+###Logic（逻辑）
+* Proposition（命题）: A proposition is a declaration that is either true or false, but not both.
+* Truth Value : the truth value of true (or false, respectively) proposition is True (or False, respectively) and denoted by T (or F, respectively)
+* Propositional Variables are variables that represent propositions (operand 运算元)
+* Propositional Calculus（命题演算）
+* Compound Proposition（复合命题）
+* Logical Operator（逻辑算子） $\wedge,\,\vee,\,\neg,\,\forall,\,\exists,\,\to,\,\leftrightarrow$
+* + Negation Operator $\neg$
+* + - Let p be a proposition, $\neg$ p, the negation of p is the statement (not the case of p)
+* + Conjunction Operator $\wedge$
+* + Disjunction Operator $\vee$
+* + Exclusive OR $\oplus$ (xor)
+* + Conditional Operator $\to$ Implication
+* + - Using $F \to T$ so we can using this in the universal proof
+* + Biconditional Operator $\leftrightarrow$ Equality iff
+* Truth Table
+![TruthTable.gif-15.9kB][1]
+
+##2
+###Propositional Equivalence
+* Compound proposition is always true (or false, respectively), is called **tautology** (or **contradiction**, respectively)
+* Neither tautology nor contradiction is called contingency
+* Logical Equivalence $\equiv$
+* Law
+* + Identity Law
+* + - $p \wedge T \equiv p$
+* + - $p \vee F \equiv p$
+* + Domination Law
+* + - $p \vee T \equiv T$
+* + - $p \wedge F \equiv F$
+* + Idempotent Law
+* + - $p \wedge p \equiv p$
+* + - $p \vee p \equiv p$
+* + Double negation
+* + - $\neg (\neg p) \equiv p$
+* + Commtative Law
+* + - $p \wedge q \equiv q \wedge p$
+* + - $p \vee q \equiv q \vee q$
+* + Associative Law
+* + - $(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$
+* + - $(p \vee q) \vee r \equiv p \vee (q \vee r)$
+* + Distributive Law
+* + - $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$
+* + - $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$
+* + De Morgan Law
+* + - $\neg (p \vee q) \equiv \neg p \wedge \neg q$
+* + - $\neg (p \wedge q) \equiv \neg p \vee \neg q$
+* + Absorption Law
+* + - $p \vee (p \wedge q) \equiv p$
+* + - $p \wedge (p \vee q) \equiv p$
+* + Negation Law
+* + - $p \vee \neg p \equiv T$
+* + - $p \wedge \neg p \equiv F$
+* + Conditional Statement
+* + - $p \to q \equiv \neg q \to \neg p$
+* + - $p \to q \equiv \neg p \vee q$
+* + - $(p \to q) \wedge (p \to r) \equiv p \to (q \wedge r)$
+* + - $(p \to r) \wedge (q \to r) \equiv (p \vee q) \to r$
+* + Biconditonal Statement
+* + - $p \leftrightarrow q \equiv (p \to q) \wedge (q \to p)$
+* + - $p \leftrightarrow q \equiv (p \wedge q) \vee (\neg p \wedge \neg q)$
+* + - $p \leftrightarrow q \equiv \neg p \leftrightarrow \neg q$
+* $p_1 \wedge p_2 \cdots \wedge p_n \equiv \wedge_{i = 1}^{n} p_i$
+* $p_1 \vee p_2 \cdots \vee p_n \equiv \vee_{i = 1}^{n} p_i$
+* $\neg (\wedge_{i = 1}^{n} p_i) \equiv \vee_{i = 1}^{n} \neg p_i$
+* $ \neg (\vee_{i = 1}^{n} p_i) \equiv \wedge_{i = 1}^{n} \neg p_i$
+
+##3
+###Predicates and (Nested) Quantifiers
+* $P(x_1,x_2,\cdots,x_n)$ n-tuple predicate, proposition function
+* Amibiguous $P(x)$ function/proposition
+* + $\forall x \in U,\, P(x) \equiv \forall x ( x\ in U \wedge P(x))$
+* + $\exists x \in U,\, P(x) \equiv \exists x ( x\ in U \wedge P(x))$
+* Universal Quantifier $\forall$
+* + $\forall x P(x) = \wedge_{x \in U} P(x)$
+* + counter example
+* + $\neg (\forall x P(x)) \equiv \exists x \neg P(x)$
+* + $U = \{\cdots\}$ the domain/the domain of discourse/the universal of discourse
+* Existential Quantifier $\exists$
+* + $\exists x P(x) = \vee_{x \in U} P(x)$
+* + $\neg (\exists x P(x)) \equiv \forall x \neg P(x)$
+* Uniqueness Quantifiers $\exists !$
+* $\forall x \forall y \equiv \forall y \forall x \equiv \forall xy$
+* $\exists x \exists y \equiv \exists y \exists x \equiv \exists xy$
+* Binding and Free Variables
+* + ![bindingvariables.PNG-81.6kB][2]
+* Distinct Quantifiers Not Commutable
+
+##4
+###Rules of Inferences
+* premises conclusion
+* $(p_1 \wedge p_2 \cdots \wedge p_n) \to q \equiv T$ is tautology
+* ![inference.jpg-27kB][3]
+* ![syllogisms.gif-32.2kB][4]
+* Resolution $[(p \vee q) \wedge (\neg p \vee r)] \to ( q\vee r)$
+* 经典逻辑：肯定前件/否定后件/假言三段式/选言三段式
+![inference2.png-139.6kB][5]
+* For Quantified Statement
+![inference4.png-18.6kB][6]
+* 形式谬误：肯定后件/否定前件
+![fallacy.jpg-52.7kB][7]
+* Proof
+* + Direct Proof (For all cases)
+* + Proof by Contraposition 逆否证
+* + Proof by Contradiction 反证矛盾
+* + Vacuous and Trival Proofs 前提永否/结论永真
+* Existence Proof
+* + Constructive Proof
+* + Nonconstructive Proof
+![proof.PNG-76.3kB][8]
+
+##5
+###Set
+* a set is an **unordered** collection of objects
+* Set Builder
+* + $S = \{x | P(x) \}, (P(x) \equiv T)$
+* Cardinality
+* + $|S|$ (finite, infinite) $|\phi| = 0$
+* Subset
+* + $A \subseteq B$ iff every element of A is an element of B
+* + $\phi \subseteq S \,\, S \subseteq S$
+
+
+
+##6
+###Set
+* Venn Diagram
+![venn-diagram-08.png-20.4kB][9]
+* The Principle of Inclusion-Exclusion
+* + $$\biggl|\bigcup_{i=1}^n A_i\biggr| = \sum_{i=1}^n\left|A_i\right|\;
+-\sum_{1 \le i < j \le n}\left|A_i\cap A_j\right|\; + \sum_{1 \le i < j < k \le n}\left|A_i\cap A_j\cap A_k\right|\;-\ \ldots\ +\; \left(-1\right)^{n-1} \left|A_1\cap\cdots\cap A_n\right|.$$
+* + $$\Biggl|\bigcup_{i=1}^n A_i\Biggr| = \sum_{k = 1}^{n} (-1)^{k+1} \left( \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} \left| A_{i_{1}} \cap \cdots \cap A_{i_{k}} \right| \right)$$
+* + $$\Biggl|\bigcup_{i=1}^n A_i\Biggr| = \sum_{\emptyset\neq J\subseteq\{1,2,\ldots,n\}}(-1)^{|J|-1}\Biggl|\bigcap_{j\in J} A_j\Biggr|$$
+* + By De Morgan Law $$\biggl|\bigcap_{i=1}^n \bar{A_i}\biggr| = \biggl|S - \bigcup_{i=1}^n A_i\biggr| = \left| S \right|\; - \sum_{i=1}^n\left|A_i\right|\;
++\sum_{1 \le i < j \le n}\left|A_i\cap A_j\right|\; 
+-\;  \ldots\ +\; \left(-1\right)^{n} \left|A_1\cap\cdots\cap A_n\right|$$
+* The Power Set
+* $P(A) = \{S | S \subset A\}$
+* Cartesian Products
+* + $|A_1 \times A_2 \times \cdots \times A_n| = \prod_{i = 1}^n |A_i|$
+* + $A  \times B = \{(a,b) \,| a\in A\,\, b \in B\}$
+* $|P(A\times B)| = |P(A)||P(B)|$
+* $U$ universal set
+* $A \cup B = \{x | x \in A \wedge x \in B\}$
+* $A \cap B = \{x | x \in A \vee x \in B\}$
+* $A - B = \{x | x \in A \wedge x \not \in B\}$
+* $\overline{A} = \{x | x \in U \wedge x\not \in A\} = U-A$
+* Partition
+* + $U = \bigcup_{i = 1}^n A_i$, $\forall i\neq j \,\,A_i \cap A_j = \emptyset$(disjoint)
+* Set Indentity
+* + $A \cup \emptyset = A$
+* + $A \cap \emptyset = \emptyset$
+* + $A \cup U = U$
+* + $A \cap U = A$
+* + $\overline{A^c} = A$
+* + $\overline{A \cap B} = \overline{A} \cup \overline{B}$
+* + $\overline{A \cup B} = \overline{A} \cap \overline{B}$
+* + $A \cup ( B \cap C)  = (A \cup B) \cap (A \cup C)$
+* + $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+* + $A = B \equiv (A \subseteq B) \wedge (B \subseteq A)$
+* ![setIdentities.jpg-62.7kB][10]
+* Membership Table
+![membership.PNG-41.6kB][11]
+* Function
+* + Let $A,\,B$ be sets, $f: A\to B$, an assignment exactly one element of B to each element of A $f(a)=b$
+* + $A$ domain 
+* + $B$ codomain range
+* + $a$ preimage of $b$
+* + $b$ image of $a$
+* Injection(one-to-one)
+* + $\forall a,b \in A \quad f(a)=f(b) \to a=b$
+* Surjection(onto)
+* + $\forall b \in B \,\, \exists a \in A \quad f(a)=b$
+* Bijection(one-to-one correspondence)
+* + Both injection and surjection
+* + Invertible Function $f^{-1} \circ f = f \circ f^{-1} = I$ ($I: A \to A$ identity function)
+
+##7
+###Sequences and Summation
+* Arithmetic Progression
+* Geometric Progression
+* Summation Manipulation
+* + Series splitting
+* + Order reversal
+* + Grouping
+* Countable Cardinality
+* + $|S| = |\mathbb{N}|$
+* + $|\mathbb{N} \times \mathbb{N}| = |\mathbb{N}|$ ((0,0) $\to$ 0 (1,0) $\to$ 1 (0,1) $\to$ 2 (m,n) $\to$ f(n,m) (polynomial))
+* Uncountable Cardinality
+* + $(0,1)$ diagnoal proof
+
+##8
+###Integers and Division
+* $a,b \in \mathbb{Z} \quad a | b \equiv \exists c \in \mathbb{Z} b = ac$
+* Unique quotient and remainder $a=dq+r$
+* Mod Operator
+* Modular Congruence $a \equiv b (\textrm{mod}\,m)$ iff $m|(a-b)$
+* + $a \equiv b (\textrm{mod}\,m) \Leftrightarrow a=b+km$
+* + $a \equiv b \,\, c\equiv d$
+* + - $a+c \equiv b+d$
+* + - $(a (\textrm{mod}\,m)) + (b (\textrm{mod}\,m)) \equiv a+b (\textrm{mod}\,m)$
+* + - $ac \equiv bd$
+* + - $(a (\textrm{mod}\,m))(b (\textrm{mod}\,m)) \equiv ab (\textrm{mod}\,m)$ 
+* Proof $\mathbb{R}$ is uncountable
+
+##9
+###Modular Congruence
+* Computer Storage for bits(Float, Double Number)
+* prime number
+* + $p\geq 2$ only factor of $p$ are $1$ and $p$
+* + Infinte primes
+* + $\sqrt{n}$ factor
+* Composite
+* + $q \geq 2$ and not prime
+* Factor Composition
+* + $a = \prod p_k^{s_k}$
+
+##10
+###Number System
+* $n = \sum a_k b^k$
+* binary/octal/hexadecimal/decimal expansion
+![decimal-to-hex-conversion.jpg-11.1kB][12]
+* 10-2 most-significant-bit MSB-LSB least-significant-bit
+* 数位逻辑-二进制-半加器（无进位）-全加器（有进位）
+* 暂存器左移右移
+* Euclidean Algorithm
+* + if $a = bq+r$ $\gcd(a,b) = \gcd(b,r)$
+* + ![euclidean.PNG-30.9kB][13]
+* Reverse the Euclidean Algorithm (Bézout's identity)
+* + $\gcd{(a,b)} = sa+tb$
+* + ![Bézout's identity.PNG-121kB][14]
+* + if $\gcd(a,m) = 1$, then an inverse of $a$ modulo $m$ exists. This inverse is unique modulo $m$
+* + unique $s:=a^{-1}$ $sa \equiv m (\textrm{mod}\, m)$
+* + To find $a^{-1}$, $\gcd(a,m)=\gcd(m,b)=\gcd(b,1)$
+* + Then $b = a-tm$, $1 = m-kb = m-k(a-tm)$
+* + Then $a^{-1} \equiv -k (\textrm{mod}\, m)$
+* Chinese Reminder Theorem
+* + ![chinesereminder.PNG-66.4kB][15]
+* + ![chinesereminderproof.PNG-35.9kB][16]
+
+> The totient function $\phi(n)$, also called Euler's totient function, is defined as the number of positive integers $\leq n$ that are relatively prime to (i.e., do not contain any factor in common with) $n$
+
+
+> Euler's Totient Theorem
+A generalization of Fermat's little theorem. Euler published a proof of the following more general theorem in 1736. Let phi(n) denote the totient function. Then
+$$ a^{\phi(n)}=1 (\textrm{mod}\, n)$$ 
+for all $a$ relatively prime to $n$.
+
+> If b and m are relatively prime, then Euler's totient theorem states that $b^{\phi(m)}=1 (\textrm{mod}\, m)$, where $\phi(m)$ is the totient function. Hence, $b^{-1}=b^{\phi(m)-1} (\textrm{mod}\, m)$.
+
+##11
+###Number Theory
+* Variation of CRT
+* + $x \equiv 13 (\textrm{mod}\, 15) \Rightarrow \begin{cases} x \equiv 1 (\textrm{mod}\, 3) \\  x \equiv 3 (\textrm{mod}\, 5) \end{cases}$
+* Fermat's Little Theorem
+* + $p$ prime $p \not | \,\,a $, $a^{p} \equiv a (\textrm{mod}\, p)$
+* + Proof
+* + - $1,2,\cdots,p-1$ is rearrangement of $a,2a,\cdots,(p-1)a$ modulo $p$
+* + - $(p-1)! \equiv (p-1)!a^{p-1}$
+* RSA
+* + ![RSA2.PNG-39.5kB][17]
+* + $C^d \equiv (M^e)^d \equiv M^{ed} \equiv M (\textrm{mod } n)$
+
+##12
+###Number Theory
+* Modular Exponentiation
+* + ![modularexponential.gif-2.7kB][18]
+* Principle of Mathematical Induction
+* + ![induction.PNG-27.5kB][19]
+* + Inclusive-Exclusive Principle Proof
+* Strong Induction
+* + ![induction2.PNG-40.7kB][20]
+* Polygon
+* + simple: no sides intersect
+* + convex: any diagnoal in the polygon
+* + diagnoal
+* + - interior diagnoal: entirely inside the polygon, except for its endpoints
+
+##13
+###Recursive Definitions and Structural Induction
+* define $f(n)$ in terms of $f(0),\cdots,f(n-1)$
+* Fibonacci Series
+* Lame Theorem
+* + $a \geq b$, the number of divisions used by the Euclidean algorithm to find $\gcd(a,b)$ is less than or equal to $5$ times the number of decimal digits in $b$
+* + ![Lame's Theorem - First Application of Fibonacci Numbers.pdf-1162.5kB][21]
+> lame定理: 如果欧几里得算法需要k步计算出一对整数的gcd，那么这对数中较小那个数必然大于或者等于第k个斐波那契数。设n为两个整数中较小的那个，如果gcd计算过程需要k步，那么一定有n >= Fib(k) ，而Fib(k)约等于Ø的k次方除以根号5。这样就可以求得k约等于n的对数(底为Ø)。
+
+* recursively define infinite sets
+* + small finite set of base element
+* + rule for constructing new elements from previously established elements
+* + implicitly, the set has no other elements but these
+* Set of all strings
+* + given an alphabet $\Sigma$, the set $\Sigma^*$ defined
+* + $$\Sigma^* = \bigcup_{n \in \mathbb{N}} \Sigma^n$$
+* + $$\begin{cases} \varepsilon \in \Sigma^* (\varepsilon \textrm{ is the empty string ""}) \\ (\lambda \in \Sigma^*) \wedge (x \in \Sigma) \to \lambda x \in \Sigma^* \end{cases}$$
+* Tree (Rooted Tree)
+* + ![tree.PNG-68.6kB][22]
+* Recursive Algorithm
+* + The return condition
+* Merge-Sort
+* + ![merge-sort.PNG-43.4kB][23]
+* + ![merge.PNG-85.5kB][24]
+* Ackermann's Function
+* + $$ A(m, n) =
+\begin{cases}
+n+1 & \mbox{if } m = 0 \\
+A(m-1, 1) & \mbox{if } m > 0 \mbox{ and } n = 0 \\
+A(m-1, A(m, n-1)) & \mbox{if } m > 0 \mbox{ and } n > 0.
+\end{cases}$$
+
+##14
+###Counting
+* Sum and product rules
+* + The Number of IP Address (IPv4)
+* + - A class A address contains a 7-bit netid $\neg 1^7$, and a 24-bit hostid
+* + - A class B address has a 14-bit netid and a 16-bit hostid
+* + - A class C address has a 21-bit netid and a 8-bit hostid
+* + - A, B, C have distinct headers (0,10,110)
+* + - Hostid : all 0s and 1s are not allowed
+* The inclusion-exclusion principle
+* Tree Diagram
+* The pigeonhole principle (Dirichlet Drawer Principle)
+* + If $N$ objects are assigned to $k$ places, then at least $1$ places must be assigned $\lceil N/k \rceil$ objects
+* + $f: A \to B$ $|A| \geq |B|+1$, then some element of $B$ has $\geq 2$ preimages under $f$
+
+##15
+###Counting
+* Permutation
+* + $P(n,r) = \frac{n!}{(n-r)!}$
+* Permutation with repetition
+* + $n^r$
+* Permutation with Indistinguishable Object
+* + $\frac{n!}{n_1!n_2!\cdots n_k!}$
+* Combination
+* + $C(n,r) = \frac{n!}{r!(n-r)!}$
+* Combination with Repetition
+* + $C(n+r-1,r)$
+* + ![comwithre.PNG-43.7kB][25]
+* Binomial Coefficients
+* + $(x+y)^n = \sum \binom{n}{j} x^{n-j} y^j$
+* + $\sum \binom{n}{j} = 2^n$
+* + $\binom{n+1}{k} = \binom{n}{k-1}+\binom{n}{k}$
+
+##16
+###Recurrence
+* Hanoi
+* Company Interest
+* Linear Homogeneous recurrence
+* + $a_n = \sum c_i a_{n-i}$
+* + - look for solution of $a_n = r^n$
+* + - Characteristic Equation $r^n-\sum c_i r^{n-i}  =0$
+* + - Then $a_n = \sum k_i r_i^n$
+* + 矩阵（线性变换）特征值解法
+> 在线性代数中，又遇到了「特征值」的概念。这次，求Fibonacci数列通项公式的做法变成了这样：设$u_n=\left[\begin{array}{cc}x_{n+1}\\x_n \end{array}\right]$,$u_{n+1}=Au_n$,则$A=\left[\begin{array}{cc} 1&1\\1&0\end{array}\right]$,
+$f_A(\lambda)=\left|\begin{array}{cc}1-\lambda&0\\1&-\lambda \end{array}\right|=\lambda^2-\lambda-1=0$,
+得到特征值$\lambda_1$,$\lambda_2$和对应的特征向量$x_1=\left[\begin{array}{cc} \lambda_1\\1\end{array}\right]$和$x_2=\left[\begin{array}{cc} \lambda_2\\1\end{array}\right]$.
+于是$u_n=A^nu_0=A^n(c_1x_1+c_2x_2)=c_1\lambda_1^nx_1+c_2\lambda_2^nx_2=\left[\begin{array}{cc} c_1\lambda^{n+1}+c_2\lambda^{n+1}\\c_1\lambda^{n}+c_2\lambda^{n}\end{array}\right]$
+* 微分方程 $\Leftrightarrow$ 差分方程
+
+##17
+###Recurrence
+* k重根$r_0$   $\Rightarrow f(r) = r^n-\sum c_i r^{n-i}  =0 \quad f^{(1),(2),\cdots,(k-1)}(r_0) = 0$
+* + $nr_0, n^2r_0,\cdots,n^{k-1}r_0$ also solutions
+* Linear Nonhomogeneous Recurrence with Constant Coefficients
+* + $a_n = \sum c_i a_{n-i} + F(n)$
+* + - If $F(n)$ polynomial, try polynomial $p_n$
+* Generating Function (Series)
+* + 普通型 $G(x) = \sum_{i = 0}^{\infty} a_i x^i$
+* + 指数型 $G(x) = (1+x+x^2+\cdots)(1+\cdots)\cdots$
+* + - 求 $e_1+e_2+e_3 = 100$
+* + - #$ = \frac{g^{(100)}(0)}{100!}$
+* + 矩生成函数
+
+##18
+###Counting
+* Extentded Binomial Theorem
+* + $u \in \mathbb{R}$, $k \in \mathbb{N}$
+* + $\binom{u}{k} = \begin{cases} \frac{u(u-1)\cdots(u-k+1)}{k!} & \mbox{if } k>0 \\ 1 & \mbox{if } k=0 \end{cases}$
+* + By Taylor Series $(1+x)^u = \sum_{k = 0}^{\infty} \binom(u,k) x^k$
+* Generating Function with Recurrence
+* + $G(x) = \sum a_i x^i = a_0 + \sum (g(a_{i-1})) x^i = h_0(G(x))+h_1(G'(x))+\cdots$
+* 差分方程(数列) $\overset{生成函数(级数)}{\longleftrightarrow}$ 微分方程
+
+##19
+###Representing Binary Relation
+* ![relationeg.PNG-144.1kB][26]
+* Composition
+* + ![relationeg2.PNG-87.2kB][27]
+* + ![relationeg3.PNG-151.5kB][28]
+* + - $\odot$: $\forall \geq 1 = 1$ (Boolean Algebra)
+* + $R: A\to A$, $M_{R \circ R \circ \cdots} = (M_R)^n$
+* Transitive
+* + $\forall a,b,c \in X: (aRb \wedge bRc) \Rightarrow aRc$
+* + $R$ transitive iff $R^n \subseteq R$  ($M_{R^n})_{ij} =1$, $(M_R)_{ij} = 1$)
+* + - $(a,c) \in R^k$ means $\exists b \quad aRb \wedge bRc$
+* Symmetric
+* + $\forall a, b \in X,\ a R b \wedge b R a \; \Rightarrow \; a = b$
+* Reflexive
+* + $\forall x \in X, \ aRa$
+* Closures of Relation
+* + ![closure.PNG-72.7kB][29]
+* + 传递闭包: 从一节点所有能到的地方$\times$所有节点$=$矩阵
+* Directed Graph
+* + ![directed.PNG-90.4kB][30]
+* + ![directed2.PNG-74.7kB][31]
+
+
+##20
+###N-ary Relation
+* Derangementfe
+* + A permutation of objects that leaves no object in its original position
+* + $D_n = n! \sum_{k = 0}^n (-1)^k \frac{1}{k!}$
+* + By inclusion-exclusion principle
+* Binary Relation
+* + $R: A \leftrightarrow B$ is a subset of $A \times B$, $aRB$ means $(a,b) \in R$
+* + If $aRb$, a is related to b (by relation R)
+* + Corresponds to a predicate function
+* + - $P_R: A\times B \to \{T,F\}$
+* Complementary Relation
+* + $\overline{R}: A \leftrightarrow B$
+* + $\overline{R}: \equiv \{(a,b)\ | \ (a,b) \not \in R   \} = (A\times B) - R$
+* Inverse Relation
+* + $R^{-1}: B \leftrightarrow A$
+* + $R^{-1}: \equiv \{(b,a) \ | \ (a,b) \in R  \}$
+* Combining Relations
+* + As set of $A \times B$
+* + $R_1 \cup R_2$, $R_1 \cap R_2$, $R_1-R_2$, $R_1+R_2$, $R_1 \oplus R_2$(xor)
+* Composite Relation
+* + $R: A \leftrightarrow B$, $S: B \leftrightarrow C$
+* + $S \circ R = \{(a,c) \ | \ aRb \wedge bSc \}$
+* Relation on a Set
+* + $R: A \leftrightarrow A$
+![directed2.PNG-74.7kB][32]
+* Symmetry
+* + $(a,b) \in R \leftrightarrow (b,a) \in R$, $R=R^{-1}$
+* Asymmetry
+* + $aRb \to b\overline{R}a \equiv \neg (bRa)$
+* Antisymmetry
+* + $(a,b) \in R \wedge (b,a) \in R \to a=b$
+* + asymmetric $=$ not symmetric $\neq$ antisymmetric
+* Transivity
+* + $\forall a,b,c: (a,b) \in R \wedge (b,c) \in R \to (a,c) \in R$
+* + not transitive $=$ intransitive
+* Power of Relation
+* + $\begin{cases} R^0 : \equiv I_A \\ R^{n+1} :\equiv R^n \circ R \mbox{ for all } n \geq 0 \end{cases}$
+* Reflexivity
+* + $\forall a \in A,\ aRa$
+* + irreflexive iff complementary relation is reflexive
+* + not reflexive $\neq$ irreflexive
+> A relation that is irreflexive, or anti-reflexive, is a binary relation on a set where no element is related to itself. An example is the "greater than" relation (x>y) on the real numbers. Note that not every relation which is not reflexive is irreflexive; it is possible to define relations where some elements are related to themselves but others are not (i.e., neither all nor none are). For example, the binary relation "the product of x and y is even" is reflexive on the set of even numbers, irreflexive on the set of odd numbers, and neither reflexive nor irreflexive on the set of natural numbers.
+* N-ary relation
+* + $R \subseteq A_1 \times \cdots \times A_n$
+* + domain $A_i$
+* + degree $n$
+* + representation
+* + - explicit list/table of its tuples
+* + - function from domain to $\{T,F\}
+* + - zero-one matrix
+* + - - ![zero-one.PNG-85.9kB][33]
+* + - directed graph
+* + ‘关系’型数据库
+
+##21
+###Relation
+* Equivalence Relation
+* + reflexive $\forall a \in A$, $aRa$
+* + symmetric $\forall a,b \in A$, $aRb \to bRa$
+* + transitive $\forall a,b,c \in A$, $aRb \wedge bRc \to aRc$
+* + Eg. $=$, $\equiv (\mbox{mod } k)$
+* Equivalence Classes
+* + $R$ any equivalence relation on a set $A$
+* + The equivalence class of $a$ is $[a]_R:\equiv \{b \ | \ aRb\}$ (optional subscript $R$)
+* + The set of all elements of $A$ that are 'equivalent' to a accoring to the E.R.
+* + Each $b$ is called representative of $[a]_R$
+* Partition
+* + A partition of a set $A$ is the set of all the equivalence classes $\{A_1,A_2,\cdots\}$ for some e.r. on A
+* + All disjoint, and their union is equal to $A$
+* Paths in Digraphs/Binary Relation
+* + $M_{R^k}$ for directed graph
+* + - path with length k, k-path
+* + Transitive Closure Algorithm
+* + - Naive
+* + - - ![transclo.PNG-71.8kB][34]
+* + - Faster
+* + - - ![fastertransclo.PNG-30.9kB][35]
+* + - Floyd-Warshall
+![warshall.PNG-45.3kB][36]
+![warshall2.PNG-11.2kB][37]
+
+##22
+###Order Set
+* Partial Ordering
+* + A relation $R$ on a set $S$ is called a partial ordering or partial order if
+* + - Reflexive $\forall a \in A$, $aRa$
+* + - Antisymmetric $\forall a,b$, $(a,b) \in R \wedge (b,a) \in R \to a=b$
+* + - Transitive $\forall a,b,c \in A$, $aRb \wedge bRc \to aRc$
+* + A set S together with a partial ordering $R$ is called a partially ordered set, or **poset**, denoted by $(S,R)$
+* Total Ordering
+* + If $(S,\lesssim)$ is a poset and every two elements of $S$ are comparable, $S$ is called a totally ordered set or linearly ordered set, and $\lesssim$ is called a total order or a linear order. A totally ordered set is also called a chain
+* + - Total $\forall a, b \in X,\ a R b \vee b R a$
+* + - Antisymmetric $\forall a,b$, $(a,b) \in R \wedge (b,a) \in R \to a=b$
+* + - Transitive $\forall a,b,c \in A$, $aRb \wedge bRc \to aRc$
+> 全序是指，集合中的任两个元素之间都可以比较的关系。比如实数中的任两个数都可以比较大小，那么“大小”就是实数集的一个全序关系。
+偏序是指，集合中只有部分元素之间可以比较的关系。比如复数集中并不是所有的数都可以比较大小，那么“大小”就是复数集的一个偏序关系。
+* Hasse Diagram
+* + ![hasse1.PNG-23.7kB][38]
+* + ![hasse2.PNG-35.5kB][39]
+* + ![hasse3.PNG-72.2kB][40]
+* + ![hasse4.PNG-41.3kB][41]
+* Maximal/Minimal Element
+* + $a$ is a maximal (respectively, minimal) element in the poset $(S,\preceq)$ if there is no $b \in S$ such that $a \prec b$ (respectively, $b \prec a$) (极小元)
+* + $a$ is a greatest (respectively, least) element in the poset $(S,\preceq)$ if $b \preceq a$ (respectively, $a \preceq b$) for all $b \in S$ (最小元)
+
+> > 请注意极小元和最小元的区别。最小元是S中最小的元素，它与S中其它元素都可比；而极小元不一定与S中其它元素都可比，只要没有比它小的元素，它就是极小元。对于有穷集合S，极小元一定存在，但最小元不一定存在。最小元如果存在一定是唯一的，但极小元可能有多个。
+
+* + Every finite nonempty poset $(S,\preceq)$ has a minimal element
+* + ![maxmin.PNG-118.8kB][42]
+* Well-Order
+* + ![wellorder.PNG-20.7kB][43]
+* + ![wellorder2.PNG-49.1kB][44]
+* Lattice
+* + A partial ordered set in which every pair of elements has both a least upper bound and a greatest bound
+* + ![lattice.PNG-17.5kB][45]
+* Topological Sorting
+* + Some tasks must be completed after others have been finished.
+* + Given partial ordering $R$
+* + Find total ordering $\preceq$ such that $a \preceq b$ whenever $aRb$, $\preceq$ is said compatible with $R$
+* + ![topology.PNG-28.6kB][46]
+* + - DAG: directed acyclic graph
+* + ![topology2.PNG-24.3kB][47]
+* + ![topology3.PNG-26.5kB][48]
+
+###Graph Theory
+* Graph
+* + A particular class of discrete structures that is useful for representing relations and has a convenient webby-looking graphical representation
+* + - $V$ 节点集 a set of vertices or nodes (corresponds to the universe of the relation $R$)
+* + - $E$ 边集 a set of edges/arcs/links unorderd pairs of elements $u,v \in V$, such that $uRv$ (subset of the domain of relation $R$)
+* + Simple Graph
+* + - Distinct pairs of elemtns $u,v \in V$ 无重复边
+* + Multigraph
+* + - 有重复边
+* + - ![multigraph.PNG-10kB][49]
+* + Pseudograph
+* + - 允许自成环
+* + - ![pseudograph.PNG-7.4kB][50]
+* + Directed Graph
+* + - Corresponding to arbitary binary relation $R$
+* + - 有向边
+* + - ![directedgraph.PNG-6.4kB][51]
+* + Directed Multigraph
+* + - ![directedmultigraph.PNG-19.6kB][52]
+* + Complete Graph
+* + - 每对顶点之间都有一条无向边(一对方向相反的有向边）的简单图 无（有）向完全图
+* + - ![completegraph.PNG-9.9kB][53]
+* + - ![completegraph2.PNG-47.6kB][54]
+* + Regular Graph
+* + - ![regulargraph.PNG-47.6kB][55]
+* + Cycle Graph $C_n$
+* + - ![CycleGraphs_850.gif-2.9kB][56]
+* + - ![CycleGraphs.gif-37.2kB][57]
+* + Bipartite Double Cycle Graph
+* + - ![bicycle.gif-19.3kB][58]
+* + Wheel Graph $W_n$
+* + - ![WheelGraphs_1001.gif-10.4kB][59]
+* + - ![WheelGraphs.PNG-43.1kB][60]
+* + n-Cube Graph $Q_n$
+* + - ![ncubegraph.PNG-23kB][61]
+* + - ![ncubegraph2.PNG-43.5kB][62]
+* + - ![ncubegraph3.PNG-41.4kB][63]
+* + Bipartite Graph
+* + - ![bipartite.PNG-77.7kB][64]
+* + - ![bipartite2.PNG-40.1kB][65]
+* + - - Complete bipartite graph $K_{m,n}$
+* + Connected Graph
+* + - ![connectedgraph.PNG-56.6kB][66]
+* + Strongly Connected Graph
+* + - ![strongconnectedgraph.PNG-20.4kB][67]
+* + Acyclic Graph
+* + - 无环图
+* + - DAG=directed acyclic graph
+* + Complementary Graph
+* + - Complete Graph - Original Graph
+* + Isomorphism Graph
+* + ![graph.PNG-36kB][68]
+* + Adjacent 邻接 两个点之间至少有一条边相连/两条边有共同的顶点
+* + Incident 关联 一个点是一条边的顶点之一
+* + Connect 联结 两个顶点为一条边两端
+* + Endpoint 端点 边的两端
+* + ![adjacent.PNG-44.1kB][69]
+* + Initial 起点 有向图边的起点
+* + Terminal 终点 有向图边的终点
+* + ![directedadj.PNG-37.3kB][70]
+* + Isolated 孤立点
+* + Loop 自回路
+* + Degree/In-degree/Out-degree 度/入度/出度 无向图关联边数(环+2)/有向图为终点边数/有向图为起点边数
+* + ![degree.PNG-37.1kB][71]
+* + Subgraph 子图
+* + - ![subgraph.PNG-37.7kB][72]
+* + - ![subgraph2.PNG-31.8kB][73]
+* + Union 由不同图所有边组成的图
+* Undirected Handshaking Theorem
+* + $G$ undirected graph
+* + $$\sum_{v \in V} \deg{(v)} = 2|E|$$
+* Directed Handshaking Theorem
+* + $G$ directed graph
+* + $$\sum_{v \in V} \deg^{-}{(v)} = \sum_{v \in V} \deg^{+}{(v)} = \frac{1}{2} \sum_{v \in V} \deg{(v)} = |E|$$
+
+
+##23
+###Graph Theory
+* Graph representation
+* + Adjacency List
+* + - ![adjlist.PNG-45.2kB][74]
+* + Adjacency Matrix
+* + Incidence Matrix (非对称，以边数为列)
+* + - ![graphmatrix.PNG-63.7kB][75]
+* Graph Isomorphism
+* + ![isograph.PNG-61.7kB][76]
+* + ![graph-isomorphism-L.gif-4.9kB][77]
+* + Invariants under isomorphism
+* + - ![isoinvari.PNG-42kB][78]
+* + - Degree/In-/Out- of vertices
+* + - For connectness, the existence of circuit and connectness and simple circuit of length k
+
+##24
+###Graph Theory
+* Shortest-Path Problem
+* + Given weighted graphs $G(V,E,w)$
+* + Dijkstra Algorithm
+* + - ![dijkstra.PNG-54.6kB][79]
+* + - ![dijkstra2.jpg-60.3kB][80]
+* Path
+* + ![path.PNG-49.9kB][81]
+
+> 路径（Path）：从u到v的一条路径是指一个序列v0,e1,v1,e2,v2,...ek,vk，其中ei的顶点为vi及vi - 1，k称作路径的长度。如果它的起止顶点相同，该路径是“闭”的，反之，则称为“开”的。一条路径称为一简单路径(simple path)，如果路径中除起始与终止顶点可以重合外，所有顶点两两不等。
+行迹（Trace）：如果路径P(u,v)中的边各不相同，则该路径称为u到v的一条行迹。
+轨道（Track）：如果路径P(u,v)中的顶点各不相同，则该路径称为u到v的一条轨道。
+闭的行迹称作回路（Circuit），闭的轨称作圈（Cycle）。
+桥（Bridge）：若去掉一条边，便会使得整个图不连通，该边称为桥。
+
+* Euler Path (every edge)
+* + ![eulerpath.PNG-34.3kB][82]
+* + ![eulerpath2.png-9.1kB][83]
+* Hamilton Path (every vertex)
+* + ![hamiltonpath.PNG-32kB][84]
+* + NP problem
+
+
+##Appendix
+###Induction
+* ![wellorder3.PNG-33.1kB][85]
+* ![wellorder4.PNG-36.6kB][86]
+* ![wellorder5.PNG-30.1kB][87]
+* ![wellorder6.PNG-31kB][88]
+* ![wellorder7.PNG-33.8kB][89]
+* ![wellorder8.PNG-17.9kB][90]
+
+###Boolean Algebra
+
+
+  [1]: http://static.zybuluo.com/Airtnp/4of4tfos5gl0e7eqc0epl9fq/TruthTable.gif
+  [2]: http://static.zybuluo.com/Airtnp/ztn23cz45peegg01wnh0c0kf/bindingvariables.PNG
+  [3]: http://static.zybuluo.com/Airtnp/m7z6jde9fukoj3yeh1j3ufkh/inference.jpg
+  [4]: http://static.zybuluo.com/Airtnp/e6bochnd84xchnvwm96kf9b9/syllogisms.gif
+  [5]: http://static.zybuluo.com/Airtnp/hbxhtqmnmd9o62kkqgwq6m7n/inference2.png
+  [6]: http://static.zybuluo.com/Airtnp/dehb5soudyeuprr0ckqpu30g/inference4.png
+  [7]: http://static.zybuluo.com/Airtnp/q28cfyw7b9syhq3j2ajme9r4/fallacy.jpg
+  [8]: http://static.zybuluo.com/Airtnp/hp7shb8phonya06j3pssqqlg/proof.PNG
+  [9]: http://static.zybuluo.com/Airtnp/8s7h9x3q8i23s2x7c78gtlqv/venn-diagram-08.png
+  [10]: http://static.zybuluo.com/Airtnp/iga41eewgyko571cke48dmqg/setIdentities.jpg
+  [11]: http://static.zybuluo.com/Airtnp/kww0lu7fxf2ybt1sq4dmpr8l/membership.PNG
+  [12]: http://static.zybuluo.com/Airtnp/klb14i6s40dl6p0gh1bnpg59/decimal-to-hex-conversion.jpg
+  [13]: http://static.zybuluo.com/Airtnp/lsij9x31e5vtg4obvm7vq1gu/euclidean.PNG
+  [14]: http://static.zybuluo.com/Airtnp/9uuq9nn3p8ovbebqa94aqb0l/B%C3%A9zout%27s%20identity.PNG
+  [15]: http://static.zybuluo.com/Airtnp/z1s0xz9azpc7n92t9xihvgic/chinesereminder.PNG
+  [16]: http://static.zybuluo.com/Airtnp/d8213e43ydtionzoczi5y9gl/chinesereminderproof.PNG
+  [17]: http://static.zybuluo.com/Airtnp/pfi2ojfjwivrbyijdz912o5t/RSA2.PNG
+  [18]: http://static.zybuluo.com/Airtnp/2privykki4cb8oddzdg8mhwv/modularexponential.gif
+  [19]: http://static.zybuluo.com/Airtnp/6d2ezdsvgczx714n4binbmk2/induction.PNG
+  [20]: http://static.zybuluo.com/Airtnp/t4mp3n5hckpk8vqxb3f4g359/induction2.PNG
+  [21]: http://static.zybuluo.com/Airtnp/6yt5dc9yfvrhy3cu7g5kdgyd/Lame%27s%20Theorem%20-%20First%20Application%20of%20Fibonacci%20Numbers.pdf
+  [22]: http://static.zybuluo.com/Airtnp/m3gif21pativh4ef6fqhieh7/tree.PNG
+  [23]: http://static.zybuluo.com/Airtnp/zo3rroyu7arsozdh1fgmokyh/merge-sort.PNG
+  [24]: http://static.zybuluo.com/Airtnp/mtbmk9b1bo3xswubgk8y31ys/merge.PNG
+  [25]: http://static.zybuluo.com/Airtnp/lrt2zg7cnn1wapg833qzr08q/comwithre.PNG
+  [26]: http://static.zybuluo.com/Airtnp/cz3zw46ym6mkfk8piqon4s4e/relationeg.PNG
+  [27]: http://static.zybuluo.com/Airtnp/xdj54qcmmvisq8kj0vvd0own/relationeg2.PNG
+  [28]: http://static.zybuluo.com/Airtnp/qb2jyejfnaig7bmsyahy0hrn/relationeg3.PNG
+  [29]: http://static.zybuluo.com/Airtnp/fmfjuvwydm2032dvjh6ivu1e/closure.PNG
+  [30]: http://static.zybuluo.com/Airtnp/r0n5lt95ycf9qn3f0bbcqfn7/directed.PNG
+  [31]: http://static.zybuluo.com/Airtnp/p95xru26en16hsrmmo2gaj2s/directed2.PNG
+  [32]: http://static.zybuluo.com/Airtnp/p95xru26en16hsrmmo2gaj2s/directed2.PNG
+  [33]: http://static.zybuluo.com/Airtnp/yy8ipglobrdeu8pdelg6ibz2/zero-one.PNG
+  [34]: http://static.zybuluo.com/Airtnp/z5pz9lumvnu33ls9luoszzp3/transclo.PNG
+  [35]: http://static.zybuluo.com/Airtnp/2np0f55a3kjehp82y4iw1j3k/fastertransclo.PNG
+  [36]: http://static.zybuluo.com/Airtnp/rcgbzxtpq64sxczp9injd1ue/warshall.PNG
+  [37]: http://static.zybuluo.com/Airtnp/c14jqk4p08ei15fxpyu37sd6/warshall2.PNG
+  [38]: http://static.zybuluo.com/Airtnp/ziooovo5939jjv8wrzc7qubp/hasse1.PNG
+  [39]: http://static.zybuluo.com/Airtnp/zimn2ykkdj1ie55cbx0vfah3/hasse2.PNG
+  [40]: http://static.zybuluo.com/Airtnp/tnq4qsyk4xckcqqcszrtnhsi/hasse3.PNG
+  [41]: http://static.zybuluo.com/Airtnp/blayrqwq9krryudt4w2ytk1t/hasse4.PNG
+  [42]: http://static.zybuluo.com/Airtnp/vxah2anpabhuzfgob1okxscx/maxmin.PNG
+  [43]: http://static.zybuluo.com/Airtnp/sw38fbs9cclzlmqq1kjccvpf/wellorder.PNG
+  [44]: http://static.zybuluo.com/Airtnp/sf8pbjvfy6qjottt6zwpifwj/wellorder2.PNG
+  [45]: http://static.zybuluo.com/Airtnp/v9ipapsa6hei748mt9oo7oh4/lattice.PNG
+  [46]: http://static.zybuluo.com/Airtnp/f724lmgg4l3hmjvhso0z8x5y/topology.PNG
+  [47]: http://static.zybuluo.com/Airtnp/0yz2cnquhh6f0dn0yng6pbke/topology2.PNG
+  [48]: http://static.zybuluo.com/Airtnp/ytfhf0bfa3a5tkge0wvl7vrh/topology3.PNG
+  [49]: http://static.zybuluo.com/Airtnp/idy1hm8lsnf8fwe8lc7dftm5/multigraph.PNG
+  [50]: http://static.zybuluo.com/Airtnp/a3nd92lu6974qcwtqqsphl8l/pseudograph.PNG
+  [51]: http://static.zybuluo.com/Airtnp/ylkw2g9qg2jw4v4pdugiu9oz/directedgraph.PNG
+  [52]: http://static.zybuluo.com/Airtnp/mpvn59hhp1t1gc27f4nibm74/directedmultigraph.PNG
+  [53]: http://static.zybuluo.com/Airtnp/9peyo8i2yz7ie7tdqe6hi54h/completegraph.PNG
+  [54]: http://static.zybuluo.com/Airtnp/osb25ex6bjb8ipl5tdulyfgp/completegraph2.PNG
+  [55]: http://static.zybuluo.com/Airtnp/zsiyueayr0bnv31bshhx6vsw/regulargraph.PNG
+  [56]: http://static.zybuluo.com/Airtnp/9ohx90494rujh3k69q0hqxk1/CycleGraphs_850.gif
+  [57]: http://static.zybuluo.com/Airtnp/tlbbqr68678qtv0wpd2lxeip/CycleGraphs.gif
+  [58]: http://static.zybuluo.com/Airtnp/4pyv7lkkooasc3atq7t5b500/bicycle.gif
+  [59]: http://static.zybuluo.com/Airtnp/g9jemzhsf9ud5cdmhhsybpne/WheelGraphs_1001.gif
+  [60]: http://static.zybuluo.com/Airtnp/8hf25pvgwn55larckxfbhinw/WheelGraphs.PNG
+  [61]: http://static.zybuluo.com/Airtnp/al7v4yxlmt8aiwhbztjivuma/ncubegraph.PNG
+  [62]: http://static.zybuluo.com/Airtnp/rl96gfd1ekv30frh0iuuzdp3/ncubegraph2.PNG
+  [63]: http://static.zybuluo.com/Airtnp/aqxoaagu5xz9ye3rhd79d7os/ncubegraph3.PNG
+  [64]: http://static.zybuluo.com/Airtnp/vab7efv33sogsteb77ic047d/bipartite.PNG
+  [65]: http://static.zybuluo.com/Airtnp/ohwfkjqfn7jdydmxtzlfch92/bipartite2.PNG
+  [66]: http://static.zybuluo.com/Airtnp/pcd6tgjyatxwzg0c1j79iuaw/connectedgraph.PNG
+  [67]: http://static.zybuluo.com/Airtnp/uci4k4xcg2hfb96tokq7x74d/strongconnectedgraph.PNG
+  [68]: http://static.zybuluo.com/Airtnp/04ti6wkzzyj1fe4z1c6jf48t/graph.PNG
+  [69]: http://static.zybuluo.com/Airtnp/fpvyq77gl9t2rsi5x1rk6kgq/adjacent.PNG
+  [70]: http://static.zybuluo.com/Airtnp/dziqr7emldzr9ra9id699ixq/directedadj.PNG
+  [71]: http://static.zybuluo.com/Airtnp/ft63tjq089d654ybf9edh36j/degree.PNG
+  [72]: http://static.zybuluo.com/Airtnp/nvue570ie5sp00z4rwydec3n/subgraph.PNG
+  [73]: http://static.zybuluo.com/Airtnp/k93e0482z1u51qexpdcjqzsw/subgraph2.PNG
+  [74]: http://static.zybuluo.com/Airtnp/c3w2xxz7cu6yof73o1oxplvd/adjlist.PNG
+  [75]: http://static.zybuluo.com/Airtnp/0zywspvzsy2bgpp7cz1wlve8/graphmatrix.PNG
+  [76]: http://static.zybuluo.com/Airtnp/jbr8txsrlra2s3o4sug8phwk/isograph.PNG
+  [77]: http://static.zybuluo.com/Airtnp/kbv7y561op8szl0y2nz4w5t6/graph-isomorphism-L.gif
+  [78]: http://static.zybuluo.com/Airtnp/xp0nazw36h6x521x5wst6dre/isoinvari.PNG
+  [79]: http://static.zybuluo.com/Airtnp/pbek5egwy1jhpqf00d12rgul/dijkstra.PNG
+  [80]: http://static.zybuluo.com/Airtnp/k7wpair2sjsj5ccpd0qztpp6/dijkstra2.jpg
+  [81]: http://static.zybuluo.com/Airtnp/jz3nizl9j5pdmmnevjuxohqc/path.PNG
+  [82]: http://static.zybuluo.com/Airtnp/zo9m7nmpzfi0iqjbbey3i0j6/eulerpath.PNG
+  [83]: http://static.zybuluo.com/Airtnp/o5f8mhbpr5g8cp27iqtbe9tf/eulerpath2.png
+  [84]: http://static.zybuluo.com/Airtnp/r2k1n6e2nlmb7bbu4l63t55z/hamiltonpath.PNG
+  [85]: http://static.zybuluo.com/Airtnp/296t6sdwbx75tgut7fhsd5i8/wellorder3.PNG
+  [86]: http://static.zybuluo.com/Airtnp/gs9u6iqsp10ypphpf4m3bvuh/wellorder4.PNG
+  [87]: http://static.zybuluo.com/Airtnp/eu1u9m0qcdqgw1xeozajzsvs/wellorder5.PNG
+  [88]: http://static.zybuluo.com/Airtnp/didui4i4dnsf8a73cakslo4h/wellorder6.PNG
+  [89]: http://static.zybuluo.com/Airtnp/c5gzfbw4ohw1mpn62renrsso/wellorder7.PNG
+  [90]: http://static.zybuluo.com/Airtnp/u30jby24mtphryhqx3x2i094/wellorder8.PNG
