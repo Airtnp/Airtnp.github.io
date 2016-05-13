@@ -21,3 +21,8 @@ $x^2$
 $${x^2}$$
 
 试图写一个latex公式3
+
+$$\begin{vmatrix} 
+	1 & 2 \\
+	3 & x
+\end{vmatrix}$$
