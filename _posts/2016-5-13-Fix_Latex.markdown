@@ -35,4 +35,4 @@ Just add below code to head.html
 
 BTW: `$X_1, X_2, X_3$` can cause bugs
 
-Use `$$X_1, X_2, X_3$$ for kramdown to fix or `\$X\_1, X\_2, X\_3\$` to replace
+Use `$$X_1, X_2, X_3$$` for kramdown to fix or `$X\_1, X\_2, X\_3$` to replace
