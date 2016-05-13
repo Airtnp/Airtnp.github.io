@@ -12,12 +12,12 @@ tags:
 ## Just for Test
 --------
 
-试图写一个latex公式
+试图写一个latex公式1
 
 $x^2$
 
-试图写一个latex公式
+试图写一个latex公式2
 
 $${x^2}$$
 
-试图写一个latex公式
+试图写一个latex公式3
