@@ -1,0 +1,13 @@
+---
+layout:     post
+title:      "Test"
+subtitle:   " \"Hello World, Hello Blog\""
+date:       2016-05-14 01:31:00
+author:     "Airtnp"
+header-img: "img/post-notes.jpg"
+tags:
+    - 测试
+---
+
+##Just for Test
+$x^2$
