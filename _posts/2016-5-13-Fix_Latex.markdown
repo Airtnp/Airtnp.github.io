@@ -1,0 +1,38 @@
+---
+layout:     post
+title:      "Fix Template"
+subtitle:   "kramdown latex"
+date:       2016-05-13 02:52:00
+author:     "Airtnp"
+header-img: "img/post-notes.jpg"
+tags:
+    - Interesting
+---
+
+## Fix Latex
+
+Learn from [Mathjax, kramdown and Octopress](https://www.lucypark.kr/blog/2013/02/25/mathjax-kramdown-and-octopress/)
+
+Just add below code to head.html
+
+```
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$', '$'], ["\(", "\)"] ],
+        displayMath: [ ['$$', '$$'], ["\[", "\]"] ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+      //,
+      //displayAlign: "left",
+      //displayIndent: "2em"
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+```
+
+BTW: `$X_1, X_2, X_3$` can cause bugs
+
+Use `$$X_1, X_2, X_3$$ for kramdown to fix or `$X\_1, X\_2, X\_3$` to replace
