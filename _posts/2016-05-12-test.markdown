@@ -9,10 +9,10 @@ tags:
     - 测试
 ---
 
-##Just for Test
+## Just for Test
 --------
 试图写一个latex公式
 $x^2$
 试图写一个latex公式
-$$x^2$$
+$${x^2}$$
 试图写一个latex公式
