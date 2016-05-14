@@ -36,7 +36,7 @@ $$\begin{bmatrix} x \\ y \\ 1 \end{bmatrix}
 
 Matrix is kinda linear transformation, so rotation matrix \\($R$\\) + sketching matrix \\($S$\\) = $T\\(=RS\\)$
 
- If we have matrix $A$ \(invertiable\), we can use eigenvalue decomposition to tween, $A=VDV^{-1}$, if separated into 10 steps, $T = VD^{1/10}V^{-1}$
+ If we have matrix $A$ (invertiable), we can use eigenvalue decomposition to tween, $A=VDV^{-1}$, if separated into 10 steps, $T = VD^{1/10}V^{-1}$
 
  Also for matrix 3d on 2d image:
 
