@@ -12,6 +12,8 @@ tags:
 
 <del>Another time copy from css \(first attempt is ease function\)</del>
 
+## Theory
+
 From css3 animation, we have matrix, matrix3d method to describe transform of a image affinely. 
 
 For 2d image:
@@ -69,8 +71,24 @@ $$ \mathcal{M}(\hat{\mathbf{v}},\theta) = \begin{bmatrix}
 Similarily, we can have eigenvalue decomposiiton to make tweening animation. One point is remained that for 3d object projected to xy-plane, we should make parameter equation for each surface.
 
 
-Finally we can use projection of surface to create beautiful bullets. Remain to be done.
+Finally we can use projection of surface to create beautiful bullets. 
 
+## Realization
 
+Use pyqt as gui, matplotlib.pylab, mpl_toolkits.mplot3d as drawer.
 
+To simplify this problem, we only draw edges of convex polyhedron on xy-plane.
 
+### Place points at anticlockwise direction and add edges
+
+[anticlockwise sort](http://www.cnblogs.com/loveclumsybaby/p/3420795.html)
+
+Calculate the mass center, $\vec{OA}, \vec{OB}$ as vector from mass center to point A, B. If $\vec{OA} \times \vec{OB} < 0$, then B is anticlockwise to A. Quick sort the whole point set. Add edges AB in the edges set
+
+### Solve the convex
+
+Accordint to anticlockwise points set and edges set, judge one edge AB and one point C. If the $CBA < 90^{\circ}$ then it's concave, error.
+
+## Example
+
+Remain to be done
