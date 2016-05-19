@@ -48,11 +48,10 @@ $$ \begin{aligned}
 & = (\mathbf{a} \cdot \mathbf{c})\mathbf{b_i} - (\mathbf{a} \cdot \mathbf{b})\mathbf{c_i}
 \end{aligned}$$
 
-(?)
 $$ \begin{aligned}
-\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) & = \delta_{ij} \mathbf{a}_i(\mathbf{b} \times \mathbf{c})_j \\
-& = \delta_{ij} \mathbf{a}_i e_{jkl}\mathbf{b}_k \mathbf{c}_l \\
-& = \delta_{kp} \mathbf{b} e_{pli} \mathbf{c}_l \mathbf{a}_i
+\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})_i & = \mathbf{a}_i(\mathbf{b} \times \mathbf{c})_i \\
+& = \mathbf{a}_i e_{ijk}\mathbf{b}_j \mathbf{c}_k \\
+& = \mathbf{b}_j e_{jki} \mathbf{c}_k \mathbf{a}_i
 \end{aligned}$$
 
 ### Method 2 Quaternions
