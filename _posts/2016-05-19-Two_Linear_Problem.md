@@ -125,3 +125,9 @@ $$q_2\times(q_3\times q_1) = (q_2 \cdot q_1)q_3 - (q_2\cdot q_3)q_1$$
 ### Method 3 Use basis vector proof and linearity
 
 Just prove it on basis vector.
+
+## More reading
+
+[Hodge* Operator](https://www.zhihu.com/question/26661955)
+
+[Exterior Product](https://www.zhihu.com/question/31549458)
