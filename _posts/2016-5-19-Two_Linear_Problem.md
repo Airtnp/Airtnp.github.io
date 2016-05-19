@@ -22,7 +22,7 @@ $$\det{P} = \begin{pmatrix} 1 & 1 & 1 & 1 & 1 \\ a_1 & a_2 & a_3 & a_4 & y \\ a_
 
 This is a complete Vandermonder determinant. So $\det{P} = \prod_{1 \leq j < i \leq n}\limits (x_i-x_j)$, $x_i \in (a_1, a_2, a_3, a_4, y)$.
 
-For this product, we take the coefficient of component which $\deg{y} = 3$, this operation can be seen as a extending of $\det{P}$ on $y_3$, and we get the coefficient is just the $\det{A}$
+For this product, we take the coefficient of component which $\deg{y} = 3$, this operation can be seen as a extending of $\det{P}$ on $y^3$, and we get the coefficient is just the $\det{A}$
 
 ## How to conduct vector mixed product and triple product?
 
@@ -52,13 +52,20 @@ $$ \begin{aligned}
 $$ \begin{aligned}
 \mathbf{a} \cdot (\mathbf{b} \times \mathbf{c}) & = \delta_{ij} \mathbf{a}_i(\mathbf{b} \times \mathbf{c})_j \\
 & = \delta_{ij} \mathbf{a}_i e_{jkl}\mathbf{b}_k \mathbf{c}_l \\
-& = \delta_{kp} \mathbf{b} e_{pli} \mathbf{c}_l \mathbf{a}_i$$
+& = \delta_{kp} \mathbf{b} e_{pli} \mathbf{c}_l \mathbf{a}_i
+\end{aligned}$$
 
 ### Method 2 Quaternions
 
 $q = a+bi+cj+dk$
 
- $1=\begin{pmatrix} 1 & 0 \\ 0 & 1\end{pmatrix}$, $i = \begin{pmatrix} \sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix}$, $j = \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}$, $k = \begin{pmatrix} 0 & \sqrt{-1} \\ \sqrt{-1} & 0\end{pmatrix}$
+ $$1=\begin{pmatrix} 1 & 0 \\ 0 & 1\end{pmatrix}$$
+
+ $$i = \begin{pmatrix} \sqrt{-1} & 0 \\ 0 & -\sqrt{-1}\end{pmatrix}$$
+
+$$j = \begin{pmatrix} 0 & 1 \\ -1 & 0\end{pmatrix}$$
+
+$$k = \begin{pmatrix} 0 & \sqrt{-1} \\ \sqrt{-1} & 0\end{pmatrix}$$
 
 $\Re{q} = \frac{1}{2}(q+\overline{q})$, $\Im{q} = \frac{1}{2}(q-\overline{q})$
 
