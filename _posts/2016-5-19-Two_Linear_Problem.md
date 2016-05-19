@@ -121,3 +121,7 @@ $$\Rightarrow q_1\cdot(q_2\times q_3) = q_3 \cdot (q_1 \times q_2)$$
 $$\Rightarrow -q_2\times(q_3\times q_1) = q_1\times(q_2\times q_3) + q_3\times(q_1 \times q_2) = q_3 \cdot (q_1 \times q_2) = -(q_2\cdot q_1)q_3 + (q_2 \cdot q_3)q_1$$
 
 $$q_2\times(q_3\times q_1) = (q_2 \cdot q_1)q_3 - (q_2\cdot q_3)q_1$$
+
+### Method 3 Use basis vector proof and linearity
+
+Just prove it on basis vector.
