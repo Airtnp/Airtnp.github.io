@@ -4,7 +4,7 @@ title:      "Interesting Curves"
 subtitle:   "wtf"
 date:       2016-05-24 21:55:00
 author:     "Airtnp"
-header-img: "img/linear.jpg"
+header-img: "img/post-curve.jpg"
 tags:
     - LuaSTG
     - Curve
