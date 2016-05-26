@@ -10,6 +10,10 @@ tags:
     - Curve
 ---
 
+## Voroni Graph
+
+* See Computational Graphics
+
 ## Spirograph
 
 [wiki](https://en.wikipedia.org/wiki/Spirograph) Very cool. Not so hard
