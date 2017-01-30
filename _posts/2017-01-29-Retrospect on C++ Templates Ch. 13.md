@@ -17,7 +17,7 @@ tags:
 C++0x(11)中已经支持对形如`std::vector<std::list<int>>`中的`>>`不加空格的情形([wiki](https://en.wikipedia.org/wiki/C%2B%2B11#Right_angle_bracket))。 
 
 * 然而C++ Primer 5th Edition还是加了空格..
-* Lexer直接将`>>`作为一个token丢给parser处理，大概这也是C++是一个context-sensitive语言的范例之一
+* Lexer直接将`>>`作为一个token丢给parser处理，大概这也是C++是一个context-sensitive语言的范例之一(知乎来源清求)
 
 还有一个是digraph和trigraph的处理。举个例子就是形如`<:`可以看做`[`，`??=`可以看做`#`。C++1z(17)已经有去除trigraph的提案([wiki](https://en.wikipedia.org/wiki/Digraphs_and_trigraphs))
 
@@ -77,7 +77,7 @@ n({{1}, {2}, {3}}, Aggr()); // deduced T = Aggr, deduced N = 3
 
 ## 13.6 typedef模板
 
-C++0x(11)用扩展using来代替typedef模板，比如我们可以用如下
+C++0x(11)用扩展using来代替typedef模板，比如我们可以用如下方式使用`using`
 
 ```c++
 
@@ -137,7 +137,7 @@ C++0x(11)引入了[`alignment_of`](http://en.cppreference.com/w/cpp/types/alignm
 
 ## 13.15 初始化器的演绎
 
-C++0x(11)引入了`auto`关键字，现在可以编译器自动推导表达式类型了（函数C++0x(11)`auto`可以后置，C++1y(14)`auto`可以推导）（模板C++1z(17)`auto`可以推导)[cppreference](http://en.cppreference.com/w/cpp/language/auto)
+C++0x(11)引入了[`auto`](http://en.cppreference.com/w/cpp/language/auto)关键字，现在可以编译器自动推导表达式类型了（函数C++0x(11)`auto`可以后置，C++1y(14)`auto`可以推导）（模板C++1z(17)`auto`可以推导)
 
 ## 13.16 函数表达式
 
