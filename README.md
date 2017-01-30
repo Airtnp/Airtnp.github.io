@@ -1,10 +1,4 @@
-Lemma Theme
-===========
-
-Lemma is yet another simple responsive theme for Jekyll.
-
-
-License
+#Airtnp Blog
 -------
-
-- MIT
+Use Hux Blog Template
+###[View Live Hux Blog &rarr;](http://huxpro.github.io)

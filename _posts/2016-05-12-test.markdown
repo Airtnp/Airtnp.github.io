@@ -1,0 +1,38 @@
+---
+layout:     post
+title:      "Test"
+subtitle:   " \"Hello World, Hello Blog\""
+date:       2016-05-12 01:31:00
+author:     "Airtnp"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - 测试
+---
+
+## Just for Test
+--------
+
+试图写一个latex公式1
+
+$x^2$
+
+试图写一个latex公式2
+
+$${x^2}$$
+
+试图写一个latex公式3
+
+$$\begin{vmatrix} 
+	1 & 2 \\
+	3 & x
+\end{vmatrix}$$
+
+表格
+
+|-----------------+------------+-----------------+----------------|
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            |
+|-----------------+------------+-----------------+----------------|
