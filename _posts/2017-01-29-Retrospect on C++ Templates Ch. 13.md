@@ -42,8 +42,29 @@ void clear(typename Array<int>::ElementT& p) //Error
 
 ## 13.3 缺省函数模板实参
 
-从[cppreference](http://en.cppreference.com/w/cpp/language/template_argument_deduction)来看，C++1z(17)似乎能支持乱序的模板参数推导了
+从[cppreference](http://en.cppreference.com/w/cpp/language/template_argument_deduction)来看，C++1z(17)似乎能支持乱序的模板参数推导了 (Is Jekyll not supporting \{\{\}\} code a known issue ??)
 
+
+```c++
+
+template<class T, int N> void h(T const(&)[N]);
+h(\{1, 2, 3\}); // deduced T = int, deduced N = 3
+ 
+template<class T> void j(T const(&)[3]);
+j(\{42\}); // deduced T = int, array bound is not a parameter, not considered
+ 
+struct Aggr \{ int i; int j; \};
+template<int N> void k(Aggr const(&)[N]);
+k(\{1, 2, 3\});       // error: deduction fails, no conversion from int to Aggr
+k(\{\{1\}, \{2\}, \{3\}\}); // OK: deduced N = 3
+ 
+template<int M, int N> void m(int const(&)[M][N]);
+m(\{\{1, 2\}, \{3, 4\}\}); // deduced M = 2, deduced N = 2
+ 
+template<class T, int N> void n(T const(&)[N], T);
+n(\{\{1\}, \{2\}, \{3\}\}, Aggr()); // deduced T = Aggr, deduced N = 3
+
+```
 
 但缺省在前的情况不明。
 
