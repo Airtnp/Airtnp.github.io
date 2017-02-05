@@ -74,7 +74,7 @@ n(\{\{1\}, \{2\}, \{3\}\}, Aggr()); // deduced T = Aggr, deduced N = 3
 
 ## 13.5 放松模板的模板参数的匹配
 
-似乎没有实现，可以用Parameter Pack(C++0x(11))来作为模板的模板参数(Type, Allocator, Traits)
+似乎没有实现，可以用Parameter Pack(C++0x(11))来作为模板的模板参数(Type, Allocator, Traits, Policy)
 
 ## 13.6 typedef模板
 
